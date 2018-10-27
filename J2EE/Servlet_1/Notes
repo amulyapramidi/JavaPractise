@@ -1,0 +1,16 @@
+Notes 
+~~~~~~
+1. "service()" is for all input requests irrespective of Http protocol or anything else.
+2. To write to output use below two methods :
+a) response.getWriter().write("output");
+b) response.getOutputStream().print("output");
+-> If (a) is already used before (b) getting error illegal state
+3. Servlet vs GenericServlet vs HttpServlet
+a) This gives only service() method. You don't have doGet or doPost to override. Apart from service,
+getServletConfig, init such generic methods also requested to implement. To be iplemented.
+b) This gives only service() method. You don' have doGet or doPost to override. Won't handle Https. To be
+extended. 
+c) This doesn't give any methods. User can override doGet, doPost methods. Must have same signature as
+parent. To be extended.
+4. If using input data from from, use 'name' not 'id' while getting data from request object.
+
