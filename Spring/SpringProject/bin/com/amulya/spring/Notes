@@ -1,0 +1,13 @@
+Things I have learnt:
+~~~~~~~~~~~~~~~~~~~~~
+1. ApplicationContext is needed to load beans.xml
+2. In bean, list dependency can also be injected
+3. A bean and be inserted in another bean using auto-wire
+4. There are different types of Auto-Wiring- byType and byName
+5. byName needs match of setter variable name
+6. If the nested bean name is modified - need to regenerate setter again
+7. To auto-wire a bean there are 2 days
+a) Using <property name="Laptop" ref="bean_name">
+b) Mentioning auto-wire="byType/byName" in parent bean node.
+8. Type of list supported by spring is java.util.List
+9. Have to findout why just mentioning annotation like @Autowired and @Component didn't work.

@@ -1,0 +1,23 @@
+<beans xmlns = "http://www.springframework.org/schema/beans"
+   xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation = "http://www.springframework.org/schema/beans
+   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+  
+   	<bean id="Vendor" class="com.amulya.spring.Vendor" autowire="byType">
+
+   	</bean>
+	 <bean id = "laptop" class = "com.amulya.spring.Laptop"> 
+	 <property name="lid" value="10"></property>
+	 <property name="lname" value="NewLaptopYo"></property>
+     <property name="configurations">
+            <list>
+               <value>sun</value>
+               <value>Oracle</value>
+               <value>java4s</value>
+               <value>sun</value>
+           </list>
+	</property>
+	   </bean>
+
+</beans>
