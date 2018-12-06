@@ -86,8 +86,17 @@ Steps to create Sample Spring MVC Application:
 WITHOUT ANNOTATIONS
 ####################
 1. Create controller class extending AbstractController that returns a ModelAndView object
-2. Creeate view page Hello.jsp
+2. Create view page Hello.jsp
 3. Create file spring-dispatcher-servlet.xml 
 	-> Mention bean for HandlerMapping - BeanNameUrlHandlerMapping 
 	-> Mention controller bean with url pattern as name
 	-> Mention ViewResolver bean (InternalViewResolver)- This contains prefix(/Web-INF/jsp),suffix(.jsp) for view 
+#################
+WITH ANNOTATIONS
+#################
+1. Create controller class returns a method that returns ModelAndView object. Add @Controller annotation and for method @RequestMapping("/Welcome")
+2. Create view page Hello.jsp
+3. Create file spring-dispatcher-servlet.xml 
+	-> Mention ViewResolver bean (InternalViewResolver)- This contains prefix(/Web-INF/jsp),suffix(.jsp) for view 
+	-> Mention component-scan node for Scanning of annotations
+	<context:component-scan base-package="com.amulya.spring" />
