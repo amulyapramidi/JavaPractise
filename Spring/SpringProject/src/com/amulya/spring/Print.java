@@ -12,6 +12,5 @@ public static void main(String[] args) {
 		  Vendor obj = (Vendor) context.getBean("Vendor");
 	      obj.getLaptopInfo();
 	      System.out.println(obj.getLaptop());
-	// haha
 }
 }
