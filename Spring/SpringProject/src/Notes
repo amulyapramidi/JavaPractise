@@ -70,10 +70,10 @@ Following is the work flow for a request:
 
 
 Request<------->[Front Controller]
-							<-----------> [Handler Mapping]
-						    <-----------> [Controller]
-							<-----------> [View Resolver]
-							<-----------> [View]
+				<-----------> [Handler Mapping]
+				<-----------> [Controller]
+				<-----------> [View Resolver]
+				<-----------> [View]
 [Handler Mapping] -> Based on URL guides front controller on which controller to called
 [Controller] -> Creates Model object and name of view to used to display
 [View Resolver] -> Guides Front Controller in resolving info related to View
