@@ -140,3 +140,12 @@ In argument : @RequestParam("username") String name
 In argument : 	@RequestParam(value="username" defaultValue="DummyUser") String username
 -> Have multiple requestParams ?
 In argument : @RequestParam Map<String,String> requestVars
+
+Code to createModelAndView object:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In Controller :
+ModelAndView object = new ModelAndView(<ViewName>);
+object.setObject("WelcomeMessage","Hello Welcome");
+return object;
+In <ViewName>.jsp
+<h1>{WelcomeMessage}</h1>
