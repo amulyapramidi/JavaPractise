@@ -1,5 +1,6 @@
-Things I have learnt:
-~~~~~~~~~~~~~~~~~~~~~
+##################################################
+Spring Core 
+##################################################
 1. ApplicationContext is needed to load beans.xml
 2. In bean, list dependency can also be injected
 3. A bean and be inserted in another bean using auto-wire
@@ -55,3 +56,26 @@ Want to modify bean property before bean creation:
 	In beans.xml we can provide placeholder like ${WelcomeNote}... created spring.properties and mention key-value pair there.. Also mention PropertyPlaceHolderConfigurator bean
 	and also classpath to properties file
 	# This is very useful as this enabled user to change bean data using property files, Different files for PROD,UAT etc
+
+#########################################################################################
+Spring MVC:
+##########################################################################################
+
+Model - Data 
+View - UI Response
+Controller - Handler of request
+
+Following is the work flow for a request:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+Request<------->[Front Controller]
+							<-----------> [Handler Mapping]
+						    <-----------> [Controller]
+							<-----------> [View Resolver]
+							<-----------> [View]
+[Handler Mapping] -> Based on URL guides front controller on which controller to called
+[Controller] -> Creates Model object and name of view to used to display
+[View Resolver] -> Guides Front Controller in resolving info related to View
+[View] -> A JSP page that has gift-wrapped the data(model) sent by controller.
+[Front Controller] -> This is DispatcherServlet that returns a View to user upon getting request
