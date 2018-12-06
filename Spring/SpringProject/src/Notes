@@ -148,4 +148,4 @@ ModelAndView object = new ModelAndView(<ViewName>);
 object.setObject("WelcomeMessage","Hello Welcome");
 return object;
 In <ViewName>.jsp
-<h1>{WelcomeMessage}</h1>
+<h1>${WelcomeMessage}</h1>
