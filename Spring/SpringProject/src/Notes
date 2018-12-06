@@ -79,3 +79,12 @@ Request<------->[Front Controller]
 [View Resolver] -> Guides Front Controller in resolving info related to View
 [View] -> A JSP page that has gift-wrapped the data(model) sent by controller.
 [Front Controller] -> This is DispatcherServlet that returns a View to user upon getting request
+
+Steps to create Sample Spring MVC Application:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create controller class extending AbstractController that returns a ModelAndView object
+2. Creeate view page Hello.jsp
+3. Create file spring-dispatcher-servlet.xml 
+	-> Mention bean for HandlerMapping - BeanNameUrlHandlerMapping 
+	-> Mention controller bean with url pattern as name
+	-> Mention ViewResolver bean (InternalViewResolver)- This contains prefix(/Web-INF/jsp),suffix(.jsp) for view 
