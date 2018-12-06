@@ -18,5 +18,40 @@ Annotaion Scan :
  		<context:component-scan base-package="com.amulya.spring" />
  		This requires xmlns differences so old beans.xml won't work directly.
 11. Following is line to remember 
-By default, Spring will lower case the first character of the component – from ‘CustomerService’ to ‘customerService’.
-And you can retrieve this component with name ‘customerService’.
+By default, Spring will lower case the first character of the component â€“ from â€˜CustomerServiceâ€™ to â€˜customerServiceâ€™.
+And you can retrieve this component with name â€˜customerServiceâ€™.
+
+
+Spring is nothing new. J2EE already provides similar functionality. Spring is a framework making use of J2EE componenets to make webdevelopment easier for developer.
+Previously struts was there but it was only helping user with web components, spring helps users with all components of Application development - DB connectivity, making testing easier,
+enabling easier way of implementing MVC, helping in business log etc.
+Application Classes-> Spring Classes -> J2EE components
+Spring is lightweight. Following are aspects of spring architecture.
+1. Spring core
+2. Spring AOP
+3. Spring MVC
+4. Spring Web
+5. Spring ORM
+6. Spring Context
+7. Spring DAO
+All the above components are loosely coupled, meaning if user wants to use only Spring MVC he doesn't need to learn other aspects.This is what light weight means.
+A bean can be given init and destroy methods(need to mentioned in beans.xml)
+RegisterShutDownhook can be called on ApplicationContext -> This will destroy all beans after end of main method
+There are 3 ways of writing init and destroy for beans
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Write methods in bean class-> mention their name in bean.xml
+2. Annotate the methods with @PostConstruct, @PreDestroy and mention an annotation scnanner(CommonAnnotationBeanPostProcessor) bean in bean.xml
+3. Implement 2 spring interfaces IntializingBean,DisposableBean
+Writing pre-init and post-init methods for bean :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. pre-init and post-init functionality using BeanPostProcessor-> implement this and mention beanPostprocessor name in beans.xml
+2. If you have multiple beanpostprocessor classes, also implement Ordered interface and return desired order number in getOrder method
+Want to modify bean property before bean creation:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Impement BeanFactoryPostProcessor and do needful in postProcessesBeanFactory method and mention the bean in beans.xml
+2. Spring provides builtIn implementations of BeanFactoryPostProcessor, like PropertyPlaceHolderConfigurator
+	To use this :
+	~~~~~~~~~~~~
+	In beans.xml we can provide placeholder like ${WelcomeNote}... created spring.properties and mention key-value pair there.. Also mention PropertyPlaceHolderConfigurator bean
+	and also classpath to properties file
+	# This is very useful as this enabled user to change bean data using property files, Different files for PROD,UAT etc
