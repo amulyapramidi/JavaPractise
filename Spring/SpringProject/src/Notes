@@ -113,3 +113,17 @@ Controller :
 Method : 
 @RequestMapping("/Welcome")
 User : <hostName>/<WebAppName>/greet/Welcome
+
+Something in URL changes everytime
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@RequestMapping("/greet/Welcome/{username}")
+
+Want to access a placeholder for URL 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add argument : (@PathVariable("username") String name)
+Usage : System.out.println("Hello "+name)
+
+MultiplePathVariables ????
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add argument : (@PathVariable Map<String,String> pathVars)
+Usage : System.out.println("Hello "+pathVars.get("username")+" from "+pathVars.get("countryname"))
