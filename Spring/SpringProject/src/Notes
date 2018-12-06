@@ -128,3 +128,15 @@ MultiplePathVariables ????
 Add argument : (@PathVariable Map<String,String> pathVars)
 Spring-dispatcher-servlet.xml : Mention <mvc:annotation-driven/>
 Usage : System.out.println("Hello "+pathVars.get("username")+" from "+pathVars.get("countryname"))
+Want to handle POST requests :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+@RequestMapping(Value="/Welcome" method=RequestMethod.GET)
+
+Want to read variables in request :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+-> Assume case where html page is using action as "POST" and has 2 text fields
+In argument : @RequestParam("username") String name
+-> Want to assign default value to variables in request
+In argument : 	@RequestParam(value="username" defaultValue="DummyUser") String username
+-> Have multiple requestParams ?
+In argument : @RequestParam Map<String,String> requestVars
