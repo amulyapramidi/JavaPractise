@@ -162,7 +162,7 @@ In View :
 
 Usage of @ModelAttribute :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-In this approach, spring creates a bean with request params as ModelAttribute
+In this approach, spring creates a bean with request params as ModelAttribute. Attributes of bean must have same name as requestParams
 In Method Argument :
 @ModelAttribute("student") Student student
 In Controller :
