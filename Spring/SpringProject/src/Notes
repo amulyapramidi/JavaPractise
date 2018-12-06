@@ -82,6 +82,9 @@ Request<------->[Front Controller]
 
 Steps to create Sample Spring MVC Application:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#####################
+WITHOUT ANNOTATIONS
+####################
 1. Create controller class extending AbstractController that returns a ModelAndView object
 2. Creeate view page Hello.jsp
 3. Create file spring-dispatcher-servlet.xml 
