@@ -81,7 +81,8 @@ Request<------->[Front Controller]
 [Front Controller] -> This is DispatcherServlet that returns a View to user upon getting request
 
 Steps to create Sample Spring MVC Application:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Mention Dispatcherservlet for '/' in web.xml
 #####################
 WITHOUT ANNOTATIONS
 ####################
