@@ -171,3 +171,14 @@ object.setObject("hello","sfkjffds");
 -> No need to set modelattribute manually to ModelAndView object
 View :
 <h1>${student.name}</h1>
+
+
+When common attributes are added in Each ModelAndView object :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In controller:
+@ModelAttribute
+public void addCommonObjectToAllViewsOfController(Model model)
+{
+model.add("watermark","All rights to this page are reserved")
+}
+-> This method gets called before RequestMapping gets resolved.
