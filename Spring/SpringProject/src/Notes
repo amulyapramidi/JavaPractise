@@ -126,4 +126,5 @@ Usage : System.out.println("Hello "+name)
 MultiplePathVariables ????
 ~~~~~~~~~~~~~~~~~~~~~~~~~~
 Add argument : (@PathVariable Map<String,String> pathVars)
+Spring-dispatcher-servlet.xml : Mention <mvc:annotation-driven/>
 Usage : System.out.println("Hello "+pathVars.get("username")+" from "+pathVars.get("countryname"))
