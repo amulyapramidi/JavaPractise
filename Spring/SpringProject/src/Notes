@@ -149,3 +149,25 @@ object.setObject("WelcomeMessage","Hello Welcome");
 return object;
 In <ViewName>.jsp
 <h1>${WelcomeMessage}</h1>
+
+Want to include a bean in the View :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In Controller :
+Student student = new Student();
+student.setName("NewUser");
+ModelAndView object = new ModelAndView(<ViewName>)
+object.setObject("student",student);
+In View :
+<h1>${student.name}</h1>
+
+Usage of @ModelAttribute :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In this approach, spring creates a bean with request params as ModelAttribute
+In Method Argument :
+@ModelAttribute("student") Student student
+In Controller :
+ModelAndView object = new ModelAndView(<ViewName>)
+object.setObject("hello","sfkjffds");
+-> No need to set modelattribute manually to ModelAndView object
+View :
+<h1>${student.name}</h1>
