@@ -38,8 +38,6 @@ Annotaion Scan :
  		<context:component-scan base-package="com.amulya.spring" />
  		This requires xmlns differences so old beans.xml won't work directly.
 11. Following is line to remember 
-By default, Spring will lower case the first character of the component – from 'CustomerService' to 'customerService'.
-And you can retrieve this component with name 'customerService'.
 Bean : Vendor
 To request bean : 
 Vendor obj = (Vendor) context.getBean("vendor"); // lower case when using beans with annotation
