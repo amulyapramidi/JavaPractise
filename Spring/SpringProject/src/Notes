@@ -10,7 +10,7 @@ a) ApplicationContext
 b) BeanFactory
 ->Used in beginning versions on spring. 
 ->Now exists only for backward compatability
--> This doesn't have preloading enabled by default. Behaviour can be altered using 'deafult-lazy-init=true/false' in beans.xml
+->This doesn't have preloading enabled by default. Behaviour can be altered using 'deafult-lazy-init=true/false' in beans.xml
 BeanScope :
 ~~~~~~~~~~~
 Popular bean scopes : (There are others also)
@@ -18,7 +18,9 @@ a) Singleton (default scope)- Creates only one bean per spring container - When 
 Lifecycle methods(init,destroy) of bean is managed by spring container
 b) Prototype - Creates new bean everytime bean is requested.
 Lifecycle method destroy of bean is not managed by spring container.
-
+#### More from spring documentation ####
+Although initialization lifecycle callback methods are called on all objects regardless of scope, in the case of 'prototypes', configured destruction lifecycle callbacks are not called.
+#########################################
 2. In bean, list dependency can also be injected
 3. A bean can be inserted in another bean using auto-wire
 4. There are different types of Auto-Wiring- byType and byName
