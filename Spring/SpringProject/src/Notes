@@ -15,7 +15,9 @@ BeanScope :
 ~~~~~~~~~~~
 Popular bean scopes : (There are others also)
 a) Singleton (default scope)- Creates only one bean per spring container - When u request bean multiple times from context same bean object is returned
+Lifecycle methods(init,destroy) of bean is managed by spring container
 b) Prototype - Creates new bean everytime bean is requested.
+Lifecycle method destroy of bean is not managed by spring container.
 
 2. In bean, list dependency can also be injected
 3. A bean can be inserted in another bean using auto-wire
