@@ -37,7 +37,7 @@ Annotaion Scan :
 10. For annotations to be scanned, following in beans.xml
  		<context:component-scan base-package="com.amulya.spring" />
  		This requires xmlns differences so old beans.xml won't work directly.
-11. Following is line to remember 
+11. When using annotations, beanName is to be used in lowerCase
 Bean : Vendor
 To request bean : 
 Vendor obj = (Vendor) context.getBean("vendor"); // lower case when using beans with annotation
