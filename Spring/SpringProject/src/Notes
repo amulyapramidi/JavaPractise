@@ -61,7 +61,7 @@ There are 3 ways of writing init and destroy for beans
 1. Write methods in bean class-> mention their name in bean.xml
 2. Annotate the methods with @PostConstruct, @PreDestroy and mention an annotation scnanner(CommonAnnotationBeanPostProcessor) bean in bean.xml
 3. Implement 2 spring interfaces IntializingBean,DisposableBean
-Writing pre-init and post-init methods for bean :
+Writing pre-init and post-init methods for bean [Common to all beans]:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. pre-init and post-init functionality using BeanPostProcessor-> implement this and mention beanPostprocessor name in beans.xml
 ## Even when I implemented this BeanPostProcessor - didn't get error that methods(postProcessBeforeInitialization, postProcessAfterInitialization) 
