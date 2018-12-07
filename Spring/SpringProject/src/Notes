@@ -64,6 +64,8 @@ There are 3 ways of writing init and destroy for beans
 Writing pre-init and post-init methods for bean :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. pre-init and post-init functionality using BeanPostProcessor-> implement this and mention beanPostprocessor name in beans.xml
+## Even when I implemented this BeanPostProcessor - didn't get error that methods(postProcessBeforeInitialization, postProcessAfterInitialization) 
+are to be implemented - In Spring 5.1.x those methods are @Nullable in jar so not mandatory to implement -_-
 2. If you have multiple beanpostprocessor classes, also implement Ordered interface and return desired order number in getOrder method
 Want to modify bean property before bean creation:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
