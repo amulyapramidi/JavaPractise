@@ -8,7 +8,7 @@ public class CustomBeanPostProcessor1 implements BeanPostProcessor,Ordered {
 	@Override
 	public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
 		System.out.println("[Before2]Inside postProcessBeforeInitialization : "+beanName);
-		if(beanName.equalsIgnoreCase("Laptop"))
+		if(beanName.equalsIgnoreCase("laptop"))
 			((Laptop)bean).setLname("Modified in PostProcessor");
 		return bean;
 	}

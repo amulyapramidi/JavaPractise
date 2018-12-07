@@ -87,6 +87,7 @@ BeanPostProcessor VS BeanFactoryPostProcessor
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 BeanPostProcessor [Bean Level] - Called when container initialises 'every bean'
 BeanFactoryPostProcessor [Application Level] - Called during startup of the Spring context after all bean definitions will have been loaded but beans are yet to be 'initialised'.This allows for overriding or adding properties even to eager-initializing beans
+-> When a bean is modified in both BPP and BFPP -> BFPP is the one that is given priorit, infact BPP is not called for that bean.
 #########################################################################################
 Spring MVC:
 ##########################################################################################

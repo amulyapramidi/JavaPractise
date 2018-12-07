@@ -5,6 +5,7 @@
 
     <bean name="BeanPostProcessorr" class="com.amulya.spring.CustomBeanPostProcessor"></bean>
 	<bean name="BeanPostProcessorr1" class="com.amulya.spring.CustomBeanPostProcessor1"></bean>
+	<bean name="CustomBeanFactoryPostProcessor" class="com.amulya.spring.CustomBeanFactoryPostProcessor"></bean>
    	<bean id="Vendor" class="com.amulya.spring.Vendor" autowire="byType" init-method="init" destroy-method="destroy" scope="prototype">
 
    	</bean>
