@@ -3,7 +3,7 @@ Spring Core
 ##################################################
 1. ApplicationContext is needed to load beans.xml
 2. In bean, list dependency can also be injected
-3. A bean and be inserted in another bean using auto-wire
+3. A bean can be inserted in another bean using auto-wire
 4. There are different types of Auto-Wiring- byType and byName
 5. byName needs match of setter variable name
 6. If the nested bean name is modified - need to regenerate setter again
