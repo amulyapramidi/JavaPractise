@@ -70,7 +70,9 @@ Writing pre-init and post-init methods for bean [Common to all beans]:
 ## Even when I implemented this BeanPostProcessor - didn't get error that methods(postProcessBeforeInitialization, postProcessAfterInitialization) 
 are to be implemented - In Spring 5.1.x those methods are @Nullable in jar so not mandatory to implement -_-
 Bean and BeanName are the argument - bean data can be modified here.
+-> For annotation way just add @Component on this class
 2. If you have multiple beanpostprocessor classes, also implement Ordered interface and return desired order number in getOrder method
+@Order(int) - annotation way - Not working :(
 Want to modify bean property before bean creation:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. Impement BeanFactoryPostProcessor and do needful in postProcessesBeanFactory method and mention the bean in beans.xml
