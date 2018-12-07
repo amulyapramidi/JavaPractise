@@ -15,7 +15,7 @@ BeanScope :
 ~~~~~~~~~~~
 Popular bean scopes : (There are others also)
 a) Singleton (default scope)- Creates only one bean per spring container - When u request bean multiple times from context same bean object is returned
-b) Scope - Creates new bean everytime bean is requested.
+b) Prototype - Creates new bean everytime bean is requested.
 
 2. In bean, list dependency can also be injected
 3. A bean can be inserted in another bean using auto-wire
@@ -61,11 +61,13 @@ There are 3 ways of writing init and destroy for beans
 1. Write methods in bean class-> mention their name in bean.xml
 2. Annotate the methods with @PostConstruct, @PreDestroy and mention an annotation scnanner(CommonAnnotationBeanPostProcessor) bean in bean.xml
 3. Implement 2 spring interfaces IntializingBean,DisposableBean
+## When scope of bean is Prototype - Destroy method is not called on bean - User needs to manage destroy of bean.
 Writing pre-init and post-init methods for bean [Common to all beans]:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. pre-init and post-init functionality using BeanPostProcessor-> implement this and mention beanPostprocessor name in beans.xml
 ## Even when I implemented this BeanPostProcessor - didn't get error that methods(postProcessBeforeInitialization, postProcessAfterInitialization) 
 are to be implemented - In Spring 5.1.x those methods are @Nullable in jar so not mandatory to implement -_-
+Bean and BeanName are the argument - bean data can be modified here.
 2. If you have multiple beanpostprocessor classes, also implement Ordered interface and return desired order number in getOrder method
 Want to modify bean property before bean creation:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
