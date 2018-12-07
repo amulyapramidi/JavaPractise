@@ -1,7 +1,22 @@
 ##################################################
 Spring Core 
 ##################################################
-1. ApplicationContext is needed to load beans.xml
+1. Two ways to read Bean configuration file - beans.xml 
+a) ApplicationContext 
+->This is used in latest spring apps.
+->Functionality is similar to BeanFactory and some additional features. 
+->This has pre-loading enabled by deafult means that beans get created in spring container(pre-loaded) even though they are not requested in program. This can be changed by adding the value in
+'default-lazy-init=true' in beans.xml.
+b) BeanFactory
+->Used in beginning versions on spring. 
+->Now exists only for backward compatability
+-> This doesn't have preloading enabled by default. Behaviour can be altered using 'deafult-lazy-init=true/false' in beans.xml
+BeanScope :
+~~~~~~~~~~~
+Popular bean scopes : (There are others also)
+a) Singleton (default scope)- Creates only one bean per spring container - When u request bean multiple times from context same bean object is returned
+b) Scope - Creates new bean everytime bean is requested.
+
 2. In bean, list dependency can also be injected
 3. A bean can be inserted in another bean using auto-wire
 4. There are different types of Auto-Wiring- byType and byName
