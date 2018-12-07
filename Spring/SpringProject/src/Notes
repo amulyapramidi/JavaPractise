@@ -82,7 +82,11 @@ Want to modify bean property before bean creation:
 	In beans.xml we can provide placeholder like ${WelcomeNote}... created spring.properties and mention key-value pair there.. Also mention PropertyPlaceHolderConfigurator bean
 	and also classpath to properties file
 	# This is very useful as this enabled user to change bean data using property files, Different files for PROD,UAT etc
-
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BeanPostProcessor VS BeanFactoryPostProcessor 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+BeanPostProcessor [Bean Level] - Called when container initialises 'every bean'
+BeanFactoryPostProcessor [Application Level] - Called during startup of the Spring context after all bean definitions will have been loaded but beans are yet to be 'initialised'.This allows for overriding or adding properties even to eager-initializing beans
 #########################################################################################
 Spring MVC:
 ##########################################################################################
