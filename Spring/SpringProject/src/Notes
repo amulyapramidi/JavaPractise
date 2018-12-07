@@ -130,7 +130,7 @@ Spring-dispatcher-servlet.xml : Mention <mvc:annotation-driven/>
 Usage : System.out.println("Hello "+pathVars.get("username")+" from "+pathVars.get("countryname"))
 Want to handle POST requests :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-@RequestMapping(Value="/Welcome" method=RequestMethod.GET)
+@RequestMapping(Value="/Welcome" method=RequestMethod.POST)
 
 Want to read variables in request :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
