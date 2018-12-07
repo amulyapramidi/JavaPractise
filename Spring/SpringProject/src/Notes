@@ -36,7 +36,7 @@ Annotaion Scan :
 11. Following is line to remember 
 By default, Spring will lower case the first character of the component – from ‘CustomerService’ to ‘customerService’.
 And you can retrieve this component with name ‘customerService’.
-
+12. Bean should have @Component annotation and for Autowiring add @Auto-wired
 
 Spring is nothing new. J2EE already provides similar functionality. Spring is a framework making use of J2EE componenets to make webdevelopment easier for developer.
 Previously struts was there but it was only helping user with web components, spring helps users with all components of Application development - DB connectivity, making testing easier,
