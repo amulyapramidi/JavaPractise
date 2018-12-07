@@ -2,6 +2,9 @@ package com.amulya.annotation.spring;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 import org.springframework.stereotype.Component;
 
 @Component
@@ -32,5 +35,14 @@ public class Laptop {
 		return "Laptop [lname=" + lname + ", lid=" + lid + ", configurations=" + configurations + "]";
 	}
 	
+	@PostConstruct
+	public void init() {
+		// TODO Auto-generated method stub
+		System.out.println("Inside init");
+	}
+	@PreDestroy
+	public void destroy() {
+		System.out.println("Inside destroy");
+	}
 	
 }

@@ -18,5 +18,12 @@ public void setLaptop(Laptop laptop) {
 public void getLaptopInfo() {
 	System.out.println("LaptopName : "+Laptop.getLname());
 }
+public void init() {
+	System.out.println("[Vendor] init");
 
+}
+public void destroy() {
+	System.out.println("[Vendor] destroy");
+
+}
 }

@@ -2,8 +2,11 @@ package com.amulya.spring;
 
 import java.util.List;
 
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
 
-public class Laptop {
+
+public class Laptop implements InitializingBean,DisposableBean{
 	String lname;
 	String lid;
 	List configurations;
@@ -28,6 +31,25 @@ public class Laptop {
 	@Override
 	public String toString() {
 		return "Laptop [lname=" + lname + ", lid=" + lid + ", configurations=" + configurations + "]";
+	}
+	
+	public void init1() {
+		
+		System.out.println("[Laptop] Init using legacy way");
+	}
+
+	public void destroy2() {
+		System.out.println("[Laptop] destroy using legacy way");
+	}
+	@Override
+	public void afterPropertiesSet() throws Exception {
+		System.out.println("[Laptop] Init using interface way");
+		
+	}
+	@Override
+	public void destroy() throws Exception {
+		System.out.println("[Laptop] destroy using interface way");
+		
 	}
 	
 	
