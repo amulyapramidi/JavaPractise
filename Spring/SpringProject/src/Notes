@@ -229,7 +229,53 @@ Will this ModelAttribute work for other datatypes like String, List on the bean?
 Yes.String,Long,Date,ArrayList<String> were used in one of the example. 
 Conversion from String(form inputs are string) to respective datatypes in Bean is done by spring during creation of this attribute.
 This reduces a lot of java code for conversion of Date objects/list from String to required datatype, error handling for types etc.
+##################################################
+What if databinding results in conversion error :
+###################################################
+If user enter String as input for a field that expects Long, Spring will throw 'Syntactical Error' while binding Input to bean.
+~~~~~~~~~~~~~
+Approach - 1 : Use Basic BindingResult
+~~~~~~~~~~~~~
 
+Make use of 'BindingResult' to handle run-time errors - Navigate user to input form in case of wrong data
+In Method Argument :
+(@ModelAttribute("student") Student student, BindingResult result)
+Inside method :
+if(result.hasErrors())
+{
+ModelAndView object = new ModelAndView(<Input View>)
+object.setObject("hello","sfkjffds");
+}
+In View : Also requires a TAG to be added in View
+<form:errors path="student.*" />
+Note that data is reset in case of error and user is redirected to same input form.
+Problem : error message looks like Stack trace- Not easy for user to understand.
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Approach - 2 : Customise BindingResult
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+What if I want to omit a bean attribute from Data Binding ? :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ask : Don't bind studentDetails to Student bean even if controller method has student as @ModelAttribute
+In Controller :
+@InitBinder
+public void initBinder(WebDataBinder binder)
+{
+binder.setDisallowedFields(new String[]{"studentDetails"})
+}
+
+What if I want to provide desired Date conversion format for a bean attribute while data binding :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In Controller :
+@InitBinder
+public void initBinder(WebDataBinder binder)
+{
+SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy*****mm*****dd"); // Assume we want input provided in this format to be converted to date object
+binder.registerCustomEditor(Date.class, "studentDOB", new CustomDateEditor(dateFormat,false));
+}
 When common attributes are to be added in Each ModelAndView object :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In controller:
