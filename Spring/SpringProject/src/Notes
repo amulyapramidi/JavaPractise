@@ -202,8 +202,12 @@ object.setObject("hello","sfkjffds");
 -> No need to set modelattribute manually to ModelAndView object
 View :
 <h1>${student.name}</h1>
-
-
+This approach of ModelAttribute to set data to beans, reduces additional server code where user has to create bean and set each requestparam
+manually in controller method
+Will this attribute work for other datatypes like String, List on the bean?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Yes.String,Long,Date,ArrayList<String> were used in one of the exampl. Conversion from String to datatypes mentioned in Bean is done by
+spring during created of this attribute. This reduces a lot of java code for conversion, error handling for types
 When common attributes are to be added in Each ModelAndView object :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In controller:
@@ -212,5 +216,7 @@ In controller:
 public void addCommonObjectToAllViewsOfController(Model model)
 {
 model.add("watermark","All rights to this page are reserved")
+
+
 }
 -> This method gets called before RequestMapping gets resolved, all views will have access to this object now.
