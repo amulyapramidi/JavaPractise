@@ -266,6 +266,8 @@ Bean :
 @Size(min=10, max=50)
 Note : @Valid is added in argument to enable validations.
 String empName
+NOTE : All these checks would have to done in java code if this was J2EE way. Spring has reduced server code needed for data validation.
+
 What if I want to omit a bean attribute from Data Binding ? :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Ask : Don't bind studentDetails to Student bean even if controller method has student as @ModelAttribute
