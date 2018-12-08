@@ -194,20 +194,42 @@ In View :
 Usage of @ModelAttribute :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In this approach, spring creates a bean with request params as ModelAttribute. Attributes of bean must have same name as requestParams
+In Input form :
+<input type="text" name="name"></input>
 In Method Argument :
 @ModelAttribute("student") Student student
-In Controller :
+Inside method :
 ModelAndView object = new ModelAndView(<ViewName>)
 object.setObject("hello","sfkjffds");
--> No need to set modelattribute manually to ModelAndView object
 View :
 <h1>${student.name}</h1>
+
+-> No need to set modelattribute manually to ModelAndView object
+
+Note that the html elements name in input form must match with beans attribute name
+
+What if my class has dependency on other class -> Will attributes be set even for composed class ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Yes. Say Student bean has Address bean inside it. 
+In input form :
+<input type="text" name="student.address.name"></input>
+In Method Argument :
+@ModelAttribute("student") Student student // Notice how student class is only used - no need to mention nested class
+Inside method :
+ModelAndView object = new ModelAndView(<ViewName>)
+object.setObject("hello","sfkjffds");
+View :
+<h1>${student.address.name}</h1>
+
 This approach of ModelAttribute to set data to beans, reduces additional server code where user has to create bean and set each requestparam
 manually in controller method
-Will this attribute work for other datatypes like String, List on the bean?
+
+Will this ModelAttribute work for other datatypes like String, List on the bean?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Yes.String,Long,Date,ArrayList<String> were used in one of the exampl. Conversion from String to datatypes mentioned in Bean is done by
-spring during created of this attribute. This reduces a lot of java code for conversion, error handling for types
+Yes.String,Long,Date,ArrayList<String> were used in one of the example. 
+Conversion from String(form inputs are string) to respective datatypes in Bean is done by spring during creation of this attribute.
+This reduces a lot of java code for conversion of Date objects/list from String to required datatype, error handling for types etc.
+
 When common attributes are to be added in Each ModelAndView object :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In controller:
@@ -216,7 +238,5 @@ In controller:
 public void addCommonObjectToAllViewsOfController(Model model)
 {
 model.add("watermark","All rights to this page are reserved")
-
-
 }
 -> This method gets called before RequestMapping gets resolved, all views will have access to this object now.
