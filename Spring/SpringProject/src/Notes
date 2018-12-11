@@ -319,6 +319,15 @@ Add new property cacheSecongs in MessageSource bean:
 </bean>
 NOTE : This might effect performance.
 
+Some more validation annotations :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. @Pattern(regexp="[^0-9]*")
+Used to verify an attribute against regex say name field doesn't want numbers 
+2. @Past
+For Date attributes, if you want DOB to be earlier than today.
+3. @Max(int)
+Value should not exceed int provided. Say for age max allowed is 50. 
+In Similar way @NotNull, @NotEmpty, @Future, @Min. etc
 What if I want to omit a bean attribute from Data Binding ? :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Ask : Don't bind studentDetails to Student bean even if controller method has student as @ModelAttribute
