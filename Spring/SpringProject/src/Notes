@@ -273,6 +273,8 @@ Want to write my own error message instead of Hibernate size validation error ?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 In the above example change the annotation as 
 @Size(min=10, max=50, message="Please enter correct data for Name i.e between {min} and {max}")
+
+
 Want to move all such validation messages to a file ?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -288,10 +290,13 @@ In spring-dispatcher-servlet.xml, include following bean :
 In property file (CustomErrorMessages.properties)
 
 Size.student1.studentName=please enter correct data for studentName b/w {min} and {max}
-NOTE : Following is the notation (priority) followed by spring while looking for custom error messages 
+
+NOTE : Following is the (priority) followed by spring while looking for custom error messages in the property file.
+
 1. <Bean Validation Annotation>.<Reference Name>.<Attribute>  : Size.student1.studentName
-2. <Bean Validation Annotaion>.<Attribute> : Size.studentName
-3. <Bean Validation Annotaton>.<Attribute Type> : Size.java.lang.String
+2. <Bean Validation Annotation>.<Attribute> : Size.studentName
+3. <Bean Validation Annotation>.<Attribute Type> : Size.java.lang.String
+4. <Bean Validation Annotation> : Size
 
 If such property is not found then default validation given by validator will be shown
 
