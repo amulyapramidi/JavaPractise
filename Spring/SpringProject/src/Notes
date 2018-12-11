@@ -256,10 +256,12 @@ Approach - 2 : BindingResult with JSR
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This approach enables user to perform checks on bean attributes at the time of data binding using 'Annotations'.
 Ask : Want to validate that empName should have min 10 characters and max 50.
-
-JSR - Spec provided for Bean Validation.
-
+~~~~~~~~~~~ JSR 303 ~~~~~~~~~~~
+JSR[Java Specification Request] - 2 Spec (JSR 303/349) provided for Bean Validation by a community called JCP.
+Apache Hibernate validator - Library that implements JSR 303. Used mostly for bean validations.
+~~~~~~~~~~~~~
 Usage :
+Classpath : Include Hibernate validator jar.
 Controller :
 public ModelAndView getEmpFromSuccess(@Valid @ModelAttribute("emp") Employee emp, BindingResult result) throws Exception 
 Bean :
@@ -267,9 +269,34 @@ Bean :
 Note : @Valid is added in argument to enable validations.
 String empName
 NOTE : All these checks would have to done in java code if this was J2EE way. Spring has reduced server code needed for data validation.
+Want to write my own error message instead of Hibernate size validation error ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+In the above example change the annotation as 
+@Size(min=10, max=50, message="Please enter correct data for Name i.e between {min} and {max}")
+Want to move all such validation messages to a file ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+~~~~~~~~~~~~~~~~~~~~
+Spring MessageSource
+~~~~~~~~~~~~~~~~~~~~
+In spring-dispatcher-servlet.xml, include following bean :
+
+<bean id="MessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+<property name="basename" value="<Value To porperty file>"/>
+</bean>
+
+In property file (CustomErrorMessages.properties)
+
+Size.student1.studentName=please enter correct data for studentName b/w {min} and {max}
+NOTE : Following is the notation (priority) followed by spring while looking for custom error messages 
+1. <Bean Validation Annotation>.<Reference Name>.<Attribute>  : Size.student1.studentName
+2. <Bean Validation Annotaion>.<Attribute> : Size.studentName
+3. <Bean Validation Annotaton>.<Attribute Type> : Size.java.lang.String
+
+If such property is not found then default validation given by validator will be shown
 
 What if I want to omit a bean attribute from Data Binding ? :
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Ask : Don't bind studentDetails to Student bean even if controller method has student as @ModelAttribute
 In Controller :
 @InitBinder
