@@ -289,7 +289,7 @@ In spring-dispatcher-servlet.xml, include following bean :
 
 In property file (CustomErrorMessages.properties)
 
-Size.student1.studentName=please enter correct data for studentName b/w {min} and {max}
+Size.student1.studentName=please enter correct data for studentName b/w 2 and 30
 
 NOTE : Following is the (priority) followed by spring while looking for custom error messages in the property file.
 
@@ -298,7 +298,26 @@ NOTE : Following is the (priority) followed by spring while looking for custom e
 3. <Bean Validation Annotation>.<Attribute Type> : Size.java.lang.String
 4. <Bean Validation Annotation> : Size
 
-If such property is not found then default validation given by validator will be shown
+If such property is not found then default validation given by validator will be shown.
+
+Dont want to hard-code some data in Custom error message?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Before : Size.student1.studentName=please enter correct data for studentName b/w 2 and 30
+After : Size.student1.studentName=please enter correct data for {0} b/w {2} and {1}
+
+NOTE : {0} - Attribute Name {2} - Min value {1} - Max value
+{0} - Attribute Name that violates Validation
+{1) and so on - Sorted order of validation attributes.
+
+Dont want to restart server everytime I change properties file?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Add new property cacheSecongs in MessageSource bean: 
+
+<bean id="MessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+<property name="basename" value="<Value To porperty file>"/>
+<property name="cacheSeconds" value="1"/>
+</bean>
+NOTE : This might effect performance.
 
 What if I want to omit a bean attribute from Data Binding ? :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
