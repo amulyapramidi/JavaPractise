@@ -328,6 +328,14 @@ For Date attributes, if you want DOB to be earlier than today.
 3. @Max(int)
 Value should not exceed int provided. Say for age max allowed is 50. 
 In Similar way @NotNull, @NotEmpty, @Future, @Min. etc
+
+Want to write custom form validation annotations ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Create an interface with required AnnotationName, This interface needs annotations and one of them is 
+@Constraint(validatedBy=HobbiesValidator.class)
+2. In HobbiesValidator.java - extend CustomValidator and write desired validation
+3. In bean mention new annotation for attribute.
+
 What if I want to omit a bean attribute from Data Binding ? :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Ask : Don't bind studentDetails to Student bean even if controller method has student as @ModelAttribute
