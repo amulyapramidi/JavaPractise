@@ -471,4 +471,5 @@ In spring-dispatcher-servlet.xml :
 <property name="basename" value="<Path>/<propertyFileName>"/>
 <property name="cacheSeconds" value="1"/>
 </bean>
-Under Properties folder, create 2 files <propertyFileName>_en.properties,<propertyFileName>_zh.properties
+Under Properties folder, create 2 files <propertyFileName>_en.properties,<propertyFileName>_zh.properties with label.name=Student name in 2 different
+languages.
