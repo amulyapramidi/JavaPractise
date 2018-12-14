@@ -448,3 +448,27 @@ In Spring-dispatcher-servlet.xml, include 'mvc-interceptor' tags and 'mvc-mappin
 		<bean class="<package.class>"/>
 	</mvc-interceptor>
 </mvc-interceptors>
+
+##############################################################################
+Internationalization - Based on language preference, UI labels should be shown
+###############################################################################
+
+Have already made use of MessageSource to bind data from property files. Same is used for Internationalization also.
+
+In View hello.jsp :
+
+Previous : 
+~~~~~~~~~~~~~~~
+<h1> Student Name : 
+
+Now :
+~~~~~~~~~~~~~~~
+<h1> <spring:message code="label.name"/>
+
+In spring-dispatcher-servlet.xml :
+
+<bean id="MessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+<property name="basename" value="<Path>/<propertyFileName>"/>
+<property name="cacheSeconds" value="1"/>
+</bean>
+Under Properties folder, create 2 files <propertyFileName>_en.properties,<propertyFileName>_zh.properties
