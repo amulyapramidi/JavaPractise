@@ -399,3 +399,31 @@ public void addCommonObjectToAllViewsOfController(Model model)
 model.add("watermark","All rights to this page are reserved")
 }
 -> This method gets called before RequestMapping gets resolved, all views will have access to this object now.
+
+###############
+Interceptors
+###############
+
+Ask : Would want my web page to work on all days except sunday. Sunday should give error that page is under maintainance.
+Analysis: What is needed is to be able to decide whether request should be given to controller method or not.
+How to do :
+
+1. Write a class extending HandlerInterceptor and override method preHandle and write desired logic
+
+@override
+public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
+Calender cal = Calender.getInstance();
+int dayOfWeek = cal.get(cal.DAY_OF_WEEK);
+if(dayOfWeek==1) // Then its sunday
+{
+	response.getWriter().write("Website is closed today for maintainance");
+	return false; // False would not forward request to controller and return response.
+}
+else
+	return true;
+}
+2. Mention this bean in Spring-dispatcher-servlet.xml
+
+<mvc-interceptors>
+<bean class="<package.class>"/>
+</mvc-interceptors>
