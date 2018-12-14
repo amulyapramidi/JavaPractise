@@ -400,15 +400,15 @@ model.add("watermark","All rights to this page are reserved")
 }
 -> This method gets called before RequestMapping gets resolved, all views will have access to this object now.
 
-###############
-Interceptors
-###############
+###################################################################
+Interceptors -  Used to perform some task before request is handled
+###################################################################
 
 Ask : Would want my web page to work on all days except sunday. Sunday should give error that page is under maintainance.
 Analysis: What is needed is to be able to decide whether request should be given to controller method or not.
 How to do :
 
-1. Write a class extending HandlerInterceptor and override method preHandle and write desired logic
+1. Write a class extending HandlerInterceptorAdapter and override method preHandle and write desired logic
 
 @override
 public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception{
