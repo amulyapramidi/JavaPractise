@@ -452,6 +452,7 @@ In Spring-dispatcher-servlet.xml, include 'mvc-interceptor' tags and 'mvc-mappin
 ##############################################################################
 Internationalization - Based on language preference, UI labels should be shown
 ###############################################################################
+i18n - Acronym for ‘internationalization’ (‘i’ + 18 letters + ‘n’; lower case i is used to distinguish it from the numeral 1 (one)).
 
 Have already made use of MessageSource to bind data from property files. Same is used for Internationalization also.
 
