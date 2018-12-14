@@ -467,6 +467,7 @@ Now :
 <h1> <spring:message code="label.name"/>
 
 In spring-dispatcher-servlet.xml :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 <bean id="MessageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 <property name="basename" value="<Path>/<propertyFileName>"/>
@@ -474,3 +475,10 @@ In spring-dispatcher-servlet.xml :
 </bean>
 Under Properties folder, create 2 files <propertyFileName>_en.properties,<propertyFileName>_zh.properties with label.name=Student name in 2 different
 languages.
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Internationalization VS Locatization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Internationalization is the process of designing and building an application to facilitate localization. 
+Localization, in turn, is the cultural and linguistic adaptation of an internationalized application to two or more culturally-distinct markets.
+
+Internationalization prepares your application for localization
