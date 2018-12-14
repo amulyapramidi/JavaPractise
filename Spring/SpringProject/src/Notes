@@ -427,3 +427,8 @@ else
 <mvc-interceptors>
 <bean class="<package.class>"/>
 </mvc-interceptors>
+
+HandlerInterceptorAdapter provides 3 methods :
+1. PreHandle - Called before request is delegated to handler 
+2. PostHandle -  Called after handler method. (Before viewObject is resolved)
+3. AfterCompletion - Called after viewobject is created.
