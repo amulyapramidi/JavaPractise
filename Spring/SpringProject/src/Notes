@@ -429,6 +429,22 @@ else
 </mvc-interceptors>
 
 HandlerInterceptorAdapter provides 3 methods :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. PreHandle - Called before request is delegated to handler 
 2. PostHandle -  Called after handler method. (Before viewObject is resolved)
-3. AfterCompletion - Called after viewobject is created.
+3. AfterCompletion - Called after viewobject is created
+
+Order of events :
+PreHandle()->Handler method called based on Request Mapping -> PostHandle() -> View page created (*.jsp)-> AfterCompletion()
+
+Want interceptor to be applied only on a specific URL :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In Spring-dispatcher-servlet.xml, include 'mvc-interceptor' tags and 'mvc-mapping' tags
+
+<mvc-interceptors>
+	<mvc-interceptor>
+		<mvc-mapping path="/hello.html"/>
+		<bean class="<package.class>"/>
+	</mvc-interceptor>
+</mvc-interceptors>
