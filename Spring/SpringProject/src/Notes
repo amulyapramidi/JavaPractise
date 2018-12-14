@@ -334,7 +334,22 @@ Want to write custom form validation annotations ?
 1. Create an interface with required AnnotationName, This interface needs annotations and one of them is 
 @Constraint(validatedBy=HobbiesValidator.class)
 2. In HobbiesValidator.java - extend CustomValidator and write desired validation
-3. In bean mention new annotation for attribute.
+3. In bean mention new annotation for attribute '@isValidHobby'
+
+Want to customise 'Custom form annotations' to take parameters ?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Ask : Want to provide a pre-defined list of hobbies to verify against @isValidHobby.
+
+1. In interface, add variable String validListOfHobbies();
+2. In bean update the annotation as @isValidHobby(listOfHobbies='Music|Dance|Painting')
+3. In HobbiesValidator.java, in init(isValidHobby isvalidHobby), do isValidHobby.validListOfHobbies(); and assign it to local variable
+and use in 'isValid' method to cross check.
+4. To provide default set of hobbies incase user doesn't mention in annotation :
+
+@isValidHobby(listOfHobbies='Music|Dance|Painting')
+@isValidHobby()
+For the above thing to work, in interface, update variable as : String validListOfHobbies default 'Music|Dance|Painting';
+
 
 What if I want to omit a bean attribute from Data Binding ? :
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
