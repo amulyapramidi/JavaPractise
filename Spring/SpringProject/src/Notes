@@ -454,6 +454,18 @@ Internationalization - Based on language preference, UI labels should be shown
 ###############################################################################
 i18n - Acronym for ‘internationalization’ (‘i’ + 18 letters + ‘n’; lower case i is used to distinguish it from the numeral 1 (one)).
 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Internationalization VS Locatization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Internationalization is the process of designing and building an application to facilitate localization. 
+Localization, in turn, is the cultural and linguistic adaptation of an internationalized application to two or more culturally-distinct markets.
+
+Internationalization prepares your application for localization
+
+#################################################################
+Approach - 1 : For i18n depending on Browser's language selection
+#################################################################
+
 Have already made use of MessageSource to bind data from property files. Same is used for Internationalization also.
 
 In View hello.jsp :
@@ -475,10 +487,44 @@ In spring-dispatcher-servlet.xml :
 </bean>
 Under Properties folder, create 2 files <propertyFileName>_en.properties,<propertyFileName>_zh.properties with label.name=Student name in 2 different
 languages.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Internationalization VS Locatization
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Internationalization is the process of designing and building an application to facilitate localization. 
-Localization, in turn, is the cultural and linguistic adaptation of an internationalized application to two or more culturally-distinct markets.
 
-Internationalization prepares your application for localization
+#############################################################################
+Approach - 2 : For i18n depending on user's language selection in Application
+#############################################################################
+This is for scenario where user is given option for langugae selection in applicaiton page itself.
+
+1. In View.jsp - create 2 options like below :
+
+<a href="/SpringSampleApp/View.html?siteLanguage=en">English</a>
+<a href="/SpringSampleApp/View.html?siteLanguage=fr">French</a>
+
+NOTE : Same page is requested with siteLanguage in queryParam.
+
+2. Register LocaleChangeInterceptor bean 
+
+In spring-dispatcher-servlet.xml include 2 beans :
+
+<mvc-interceptors>
+	<mvc-interceptor>
+		<bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+      			<property name="paramName" value="siteLanguage" />
+		</bean>
+	</mvc-interceptor>
+</mvc-interceptors>
+3. Register CookieLocaleResolver bean
+This is mandatory to include if using 'LocaleChangeInterceptor'. An alternative to this is 'SessionLocaleResolver'
+~~~~~~~~~~~~~~~~~~~~
+CookieLocaleResolver
+~~~~~~~~~~~~~~~~~~~~
+If this bean is mentioned then spring application will first check in client input if any cookie related to language preference/ locale is present.
+Yes---Then that is considered.
+No---Will check if bean has param 'defaultLocale', if 'defaultLocale' is not mentioned, then considers request header 'accept-header' for locale.
+This header gets added by broswer in request params based on language preferences.
+
+<bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+	<property name="defaultLocale" value="en" />
+	<property name="cookieName" value="myLocalNameCookie"></beans:property>
+	<property name="cookieMaxAge" value="3600"></beans:property>
+</bean>
+
+
