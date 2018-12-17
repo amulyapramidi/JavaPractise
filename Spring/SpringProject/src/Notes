@@ -527,4 +527,36 @@ This header gets added by broswer in request params based on language preference
 	<property name="cookieMaxAge" value="3600"></beans:property>
 </bean>
 
+######################
+Multiple Themes
+######################
 
+Scenario is when u want give choice to user on theme and based on that we need to switch style sheet.
+1. In view.jsp - give 2 options to user
+
+
+<a href="?theme=green">Green</a>
+<a href="?theme=pink">Pink</a>
+
+2. Mention ThemeChangeInterceptor in spring-dispatcher-servlet.xml
+
+<mvc-interceptors>
+	<mvc-interceptor>
+		<bean id="themeChangeInterceptor" class="org.springframework.web.servlet.theme.ThemeChangeInterceptor">
+			<property name="paramName" value="theme" />
+		</bean>
+	</mvc-interceptor>
+</mvc-interceptors>
+
+3. Mention CookieThemeResolver 
+
+<bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
+		<property name="defaultThemeName" value="default" />
+</bean>
+
+4. Mention 'ResourceBundleThemeSource' to search for themes. Notice how MessageSource is not used for themes.
+
+<bean id="themeSource"
+		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
+			<property name="basenamePrefix" value="theme-" />
+</bean>
