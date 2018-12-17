@@ -563,6 +563,50 @@ Scenario is when u want give choice to user on theme and based on that we need t
 5. In theme-green.properties
 css=themes/green.css
 
+##################################
+Exception Handling 
+##################################
+Want to return a view page for Runtime Exception instead of default application server page.
+1. Add a new view for error scenario.
+DefaultErrorPage.jsp
 
+<h1> Application has encountered exception . Click on <a href="/AppName/admissionForm.html">link</a> to redirect</h1>
+
+2. In controller class :
+
+@ExceptionHandler(value=Exception.class)
+public String handleException(Exception e)
+{
+System.out.println("Inside generic exception handler");
+return "DefaultErrorPage";
+}
+NOTE : This is generic exception handler. Can be customised to NullPointerException,IOException etc. 
+This removes the need to add try Catch for every handler method.
+
+##########################
+Need for ControllerAdvice
+#########################
+Currently we are writing Expception handling for each controller. This would cause repitition of exception handler methods. @ControllerAdvice
+provides a way to move all common exception handling logic under one class.
+Create a class with @ControllerAdvice and move commmon ExceptionHandler methods there.
+
+#################################################
+Achieving ExceptionHandling without annotations :
+#################################################
+
+In spring-dispatcher-servlet.xml , mention :
+
+
+<bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionMappings">
+            <map>
+	    	<entry key="IOException" value="error/IOException"/>
+	    </map>
+        </property>
+        <property name="defaultErrorView" value="error/genericView"/>
+	<property name="warnLogCategory" value="MVCLogger"/> // logger category needed to log all these exceptions handled
+    </bean>
+
+NOTE: Here value refers to viewNames.
 
 
