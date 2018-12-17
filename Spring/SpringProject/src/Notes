@@ -604,7 +604,7 @@ In spring-dispatcher-servlet.xml , mention :
 	    </map>
         </property>
         <property name="defaultErrorView" value="error/genericView"/>
-	<property name="warnLogCategory" value="MVCLogger"/> // logger category needed to log all these exceptions handled
+	<property name="warnLogCategory" value="MVCLogger"/> // logger category (same as logger) needed to log all these exceptions handled
     </bean>
 
 NOTE: Here value refers to viewNames.
