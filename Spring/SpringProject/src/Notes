@@ -589,6 +589,17 @@ Need for ControllerAdvice
 Currently we are writing Expception handling for each controller. This would cause repitition of exception handler methods. @ControllerAdvice
 provides a way to move all common exception handling logic under one class.
 Create a class with @ControllerAdvice and move commmon ExceptionHandler methods there.
+PROBLEM :
+When Exceptionhndling is done this way, the statusCode in response is 200. This is wrong since request had a problem.
+To give desired StatusCode, include @ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR).
+
+@ResponseStatus(value=HttpStatus.INTERNAL_SERVER_ERROR)
+@ExceptionHandler(value=Exception.class)
+public String handleException(Exception e)
+{
+System.out.println("Inside generic exception handler");
+return "DefaultErrorPage";
+}
 
 #################################################
 Achieving ExceptionHandling without annotations :
@@ -608,5 +619,4 @@ In spring-dispatcher-servlet.xml , mention :
     </bean>
 
 NOTE: Here value refers to viewNames.
-
 
