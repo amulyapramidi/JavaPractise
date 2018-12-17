@@ -551,7 +551,7 @@ Scenario is when u want give choice to user on theme and based on that we need t
 3. Mention CookieThemeResolver 
 
 <bean id="themeResolver" class="org.springframework.web.servlet.theme.CookieThemeResolver">
-		<property name="defaultThemeName" value="default" />
+		<property name="defaultThemeName" value="green" />
 </bean>
 
 4. Mention 'ResourceBundleThemeSource' to search for themes. Notice how MessageSource is not used for themes.
@@ -560,3 +560,9 @@ Scenario is when u want give choice to user on theme and based on that we need t
 		class="org.springframework.ui.context.support.ResourceBundleThemeSource">
 			<property name="basenamePrefix" value="theme-" />
 </bean>
+5. In theme-green.properties
+css=themes/green.css
+
+
+
+
