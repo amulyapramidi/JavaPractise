@@ -620,3 +620,27 @@ In spring-dispatcher-servlet.xml , mention :
 
 NOTE: Here value refers to viewNames.
 
+####################
+Web Service / API
+####################
+A web service is any piece of software that makes itself available over the internet. It exposes some of it's functionality to other applicaitons
+(called Client Application) over internet. Client needs to have info related to functionality provided by Webservice like endpoint, operations etc,
+this is made into a XML file known as WSDL file (Web Service Descrption Language).
+To communicate to WebService a client Application can make use of 2 protocols : SOAP(Simple Object Access Protocol) or REST(Representation State Transfer).
+
+RESTful Service : If a Web Service follows REST guidelines then it is called RESTful.
+This is applied to a Client-Server environment
+REST Guidelines :
+~~~~~~~~~~~~~~~~~
+1. Any data/functionality on server that client can access/modify is a 'Resource'. Any no. of resources can be present.
+2. Response received by client is a 'Representation' or copy of resource in any of the formats - xml, json, file, pdf etc.
+3. Response = Representation of Resource + Additional Information.
+Additional Information - Meta data of response like size,format etc.
+By analysing this info, client gets to know about response -  info needed to process response.
+4. Any no. of intermediaries can be installed b/w server and client for load balancing, response caching, server security etc.
+Eg. Firewall can be installed to filter requests. Response caching server can be installed.
+5. Every request made by client must be independent of previous request.
+6. REST is best realised using HTTP protocol.
+
+
+
