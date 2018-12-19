@@ -813,5 +813,16 @@ public ResponseEntity<Object> createStudent(@RequestBody Student student) {
 }
 location: http://localhost:8080/SpringApp/students/4
 Argument mentioned under path is appened to current request URL and ID is replaced.
+##############################
+Want to test REST Services :
+##############################
 
-
+public static void getEmployees()
+{
+    final String uri = "http://localhost:8080/springrestexample/employees.xml";
+     
+    RestTemplate restTemplate = new RestTemplate();
+    String result = restTemplate.getForObject(uri, String.class);
+     
+    System.out.println(result);
+}
