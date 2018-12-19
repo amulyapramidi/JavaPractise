@@ -769,4 +769,24 @@ public boolean updateStudent(@PathVariable("name") String studentName, @RequestB
 // check if student is present in DB with student name and update studentAddress(extracted from requestbody) and return update status
 }
 
+##################################################################################################
+ResponseEntity - Use in scenarios where you want to manipulate headers and status code in response
+##################################################################################################
+
+ResponseEntity represents the whole HTTP response: status code, headers, and body. 
+Because of it, we can use it to fully configure the HTTP response.
+
+Consider a scenario where you want to manipulate response codes based on your exception handling :
+
+@RequestMapping(value = "/age")
+ResponseEntity<String> age( @RequestParam("yearOfBirth") int yearOfBirth) {
+  
+    if (isInFuture(yearOfBirth)) {
+        return new ResponseEntity<>("Year of birth cannot be in the future", HttpStatus.BAD_REQUEST);
+    }
+ 
+    return new ResponseEntity<>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
+}
+
+
 
