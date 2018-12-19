@@ -642,5 +642,46 @@ Eg. Firewall can be installed to filter requests. Response caching server can be
 5. Every request made by client must be independent of previous request.
 6. REST is best realised using HTTP protocol.
 
+############################
+Creating basic REST service
+############################
+1. In controller class, create method to handle URL '/REST/student' with RequestMethod as GET.Method must return ArrayList<Student>.
+@ResponseBody
+@RequestMapper(value="/REST/student", method=RequestMethod.GET)
+public ArrayList<Student> getStudents()
+{
+	// creates student objects, adds them to arraylist and returns.
+}
+2. Notice that @ResponseBody is included- 3 jackson jars are also included in classpath. Whenever spring notices this annotation,it will
+understand that View will not be returned and it checks if jackson jars are present and converts response to JSON.
+##################################################
+REST JSON API Annotations : These are from jackson
+###################################################
+1. Want attribute names to be different in JSON response ?
+In Student.java :
 
+@JsonProperty("student_name") 
+String studentName;
 
+2. Want to set specific order of attributes JSON response rather than Spring auto-sorting it ? 
+
+In Student.java :
+
+@JsonPropertyOrder({ "student_name", "studentDOB", "studentId" })
+class Student{
+// getters and setters
+}
+3. Want to ignore some attributes in JSON response ?
+In Student.java :
+
+@JsonIgnoreProperties({"studentDistrict"})
+class Student{
+// getters and setters
+}
+4. Don't want to include null attributes in response ?
+In Student.java :
+
+@JsonInclude(JsonInclude.Include.NON_EMPTY)
+class Student{
+// getters and setters
+}
