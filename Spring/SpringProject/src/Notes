@@ -654,6 +654,14 @@ public ArrayList<Student> getStudents()
 }
 2. Notice that @ResponseBody is included- 3 jackson jars are also included in classpath. Whenever spring notices this annotation,it will
 understand that View will not be returned and it checks if jackson jars are present and converts response to JSON.
+3. Want to get specific student 
+
+@ResponseBody
+@RequestMapper(value="/REST/student/{studentName}", method=RequestMethod.GET)
+public Student getStudents(@PathVariable("studentName") String studentName)
+{
+	// Matches studentName in DB and returns Student.
+}
 ##################################################
 REST JSON API Annotations : These are from jackson
 ###################################################
@@ -685,3 +693,18 @@ In Student.java :
 class Student{
 // getters and setters
 }
+
+NOTE : For better usability, never mix and match methods in controller classes like methods that return ModelAndView and responsebody.
+It's better to create seperate controllers, one for ModelAndView response and other for REST.
+
+################
+@RestController
+################
+Currently for each handler method in controller, we are adding annotations @ResponseBody, instead if the @Controller method is replaced
+with @RestController then it means it is a @Controller with each method having @ResponeBody. This will be resovlved this way by Spring at run
+time.
+
+@RestController=@Controller+@ResponseBody for each method.
+
+
+
