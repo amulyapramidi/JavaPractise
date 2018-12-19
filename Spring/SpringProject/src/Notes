@@ -779,7 +779,7 @@ Because of it, we can use it to fully configure the HTTP response.
 Consider a scenario where you want to manipulate response codes based on your exception handling :
 
 @RequestMapping(value = "/age")
-ResponseEntity<String> age( @RequestParam("yearOfBirth") int yearOfBirth) {
+public ResponseEntity<String> age( @RequestParam("yearOfBirth") int yearOfBirth) {
   
     if (isInFuture(yearOfBirth)) {
         return new ResponseEntity<>("Year of birth cannot be in the future", HttpStatus.BAD_REQUEST);
@@ -787,6 +787,10 @@ ResponseEntity<String> age( @RequestParam("yearOfBirth") int yearOfBirth) {
  
     return new ResponseEntity<String>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
 }
+Order of arguments : Data,header,StatusCode
+
+ResponseEntity<T> Here T refers to type of Data only as Headers and StatusCode are not custom params.
+
 Notice how argument of ResponseEntity is type of first argument and not StatusCode.
 In case of setting only Status Code 
 
@@ -797,5 +801,5 @@ Can also be writted using static methods as below :
 Old : new ResponseEntity<String>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
 New : ResponseEntity.accepted().header("Custom-Header", "foo").body("Your age is " + calculateAge(yearOfBirth));
 
-
+POST :return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED); // This returns 201.
 
