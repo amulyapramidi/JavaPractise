@@ -708,3 +708,42 @@ time.
 
 In the existing project, added jackson JSON jars for JSON response, in similar way if Jackson databind XML jar (& it's dependencies) are added
 then the controller will respond in both XML and JSON depending on 'Accept' in request header.
+
+########################################################
+Produces - To specify response format of handler method
+#########################################################
+
+Want a handler method to respond in specific response format ?
+
+@RequestMapping(produces = MediaType.APPLICATION_XML_VALUE)
+public ArrayList<Student> getStudents()
+{
+// returns students list in XML format.
+}
+
+What if user requests for a different format ? If XML is mentioned in 'produces' and user provides JSON then it will throw exception with
+error 'Could not find acceptable Representation'.
+
+##############
+@RequestBody
+##############
+
+-> For PUT request, want to access request body ?
+
+URL : <hostname>/SpringAppName/student/bill
+Body :
+<student>
+<studentAddress>UpdatedAddress</studentAddress>
+</student>
+
+@RequestMapping(value="/student/{name}", method=RequestMethod.PUT, produces = MediaType.APPLICATION_XML_VALUE)
+public boolean updateStudent(@PathVariable("name") String studentName, @RequestBody Student student)
+{
+// check if student is present in DB with student name and update studentAddress(extracted from requestbody) and return update status
+}
+NOTE : Spring performs conversion of data in Request body to java object Student and makes it available as Student specified in argument.
+Notice how we haven't speicfied 'produces' so spring converts XML /JSON RequestBody to Student object depending on 'Accept' mentioned.
+
+
+
+
