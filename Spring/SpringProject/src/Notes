@@ -801,5 +801,17 @@ Can also be writted using static methods as below :
 Old : new ResponseEntity<String>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
 New : ResponseEntity.accepted().header("Custom-Header", "foo").body("Your age is " + calculateAge(yearOfBirth));
 
-POST :return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED); // This returns 201.
+POST : return new ResponseEntity<String>("Hello World", responseHeaders, HttpStatus.CREATED); // This returns 201.
+Generally POST request also adds Response Header 'location' that gives complete URL to access the newly created resource.
+@RequestMapping(value="/students", method=RequestMethod.POST)
+public ResponseEntity<Object> createStudent(@RequestBody Student student) {
+	Student savedStudent = studentRepository.save(student);
+
+	URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}")
+			.buildAndExpand(savedStudent.getId()).toUri();
+	return ResponseEntity.created(location).build();
+}
+location: http://localhost:8080/SpringApp/students/4
+Argument mentioned under path is appened to current request URL and ID is replaced.
+
 
