@@ -643,7 +643,7 @@ Eg. Firewall can be installed to filter requests. Response caching server can be
 6. REST is best realised using HTTP protocol.
 
 ############################
-Creating basic REST service
+Creating basic REST JSON service
 ############################
 1. In controller class, create method to handle URL '/REST/student' with RequestMethod as GET.Method must return ArrayList<Student>.
 @ResponseBody
@@ -706,5 +706,5 @@ time.
 
 @RestController=@Controller+@ResponseBody for each method.
 
-
-
+In the existing project, added jackson JSON jars for JSON response, in similar way if Jackson databind XML jar (& it's dependencies) are added
+then the controller will respond in both XML and JSON depending on 'Accept' in request header.
