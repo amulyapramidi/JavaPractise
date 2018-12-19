@@ -785,8 +785,17 @@ ResponseEntity<String> age( @RequestParam("yearOfBirth") int yearOfBirth) {
         return new ResponseEntity<>("Year of birth cannot be in the future", HttpStatus.BAD_REQUEST);
     }
  
-    return new ResponseEntity<>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
+    return new ResponseEntity<String>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
 }
+Notice how argument of ResponseEntity is type of first argument and not StatusCode.
+In case of setting only Status Code 
+
+new ResponseEntity<void>(HttpStatus.OK);
+
+Can also be writted using static methods as below :
+
+Old : new ResponseEntity<String>("Your age is " + calculateAge(yearOfBirth),HttpStatus.OK);
+New : ResponseEntity.accepted().header("Custom-Header", "foo").body("Your age is " + calculateAge(yearOfBirth));
 
 
 
