@@ -826,3 +826,9 @@ public static void getEmployees()
      
     System.out.println(result);
 }
+###################################
+New annotaions from Spring MVC 4.x
+###################################
+@GetMapping("/student") : @RequestMapping(value="/student", method = RequestMethod.GET)
+Similar for other annotations
+@GetMapping supports the consumes attribute like  @RequestMapping.
