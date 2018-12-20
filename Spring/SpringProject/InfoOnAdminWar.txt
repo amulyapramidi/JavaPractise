@@ -1,1 +1,18 @@
+It makes use of annotation-driven spring framework.
+New KeyWords :
+1. ContentNegotiatingViewResolver
+2. BaseEntityInterceptor
+3. TransactionInterceptor
+4. Spring Security
+5. AnnotationSessionFactoryBean
+
+#######################
+BaseEntityInterceptor 
+#######################
+->Found reference to this under AnnotationSessionFactoryBean bean mentioned in applicationContext.xml
+->It is an implementation of a 'HibernateInterceptor' - had logic to update created_timestamp, lastUpdateTimestamp - logic common to 
+all entities.
+
+
+
 
