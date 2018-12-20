@@ -67,6 +67,7 @@ Security has 2 aspects
 -> Authentication - Check if user is valid - Verfies user info against specified creds using PasswordEncryptionAlgorithms
 -> Authorization - Check if valid user has permission access - Based on user roles
 
+To Watch : https://bit.ly/2BsfSUK
 
 
 
