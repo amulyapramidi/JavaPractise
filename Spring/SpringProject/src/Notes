@@ -856,9 +856,13 @@ Content Negotiation in Spring
 Generaly Spring MVC can return 2 types of data, XML/JSON or View.
 There might be situations where we want both. This is called Content Negotiation.
 Eg. http://localhost:1234/SpringMVC/student.xml , http://localhost:1234/SpringMVC/student.xls both should be resolved based on extension.
-This kind of behaviour we have achieved previously using jackson jars, produces and 'Accept' header. This is not suggested appraoch as 'Accept' header
-is not reliable. 
+NOTE : Writing different @RequestMapping methods (one for "/student.xml" and one for "/student.xls")is not a solution as it causes code duplication and is not a neat way to do.
+
+We returned different presentations for same content using jackson jars, produces and 'Accept' header. This is just half part of what we 
+want to achieve now.
+
 This can be achieved using ContentNegotiationViewResolver.
+
 <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
       <property name="order" value="1" />
       <property name="mediaTypes">
