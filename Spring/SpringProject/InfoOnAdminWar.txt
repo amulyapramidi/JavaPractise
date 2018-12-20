@@ -22,8 +22,6 @@ There are two ways of defining interceptors:
 How to write Hibernate Interceptor :
 1. Create a class extending 'EmptyInterceptor'. 
 2. Override required method say 'onsave()'.
-
-
   public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types)
   {
     Date date = new Date();
@@ -37,7 +35,25 @@ How to write Hibernate Interceptor :
     return true;
   }
   
- 3. In applicationContext.xml mention it as below under bean 'AnnotationSessionFactoryBean' :
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+ Different methods available
+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+  onSave – Called when you save an object, the object is not save into database yet(Object Grid ??).
+  onFlushDirty – Called when you update an object, the object is not update into database yet.
+  onDelete – Called when you delete an object, the object is not delete into database yet.
+  preFlush – Called before the saved, updated or deleted objects are committed to database (usually before postFlush).
+  postFlush – Called after the saved, updated or deleted objects are committed to database.
+
+ 3. Register Hibernate interceptor either as Session-scoped or SessionFactory-scoped
+  
+ In Admin.war it was under bean 'AnnotationSessionFactoryBean' :
  <property name="entityInterceptor">
     		<bean class="com.kony.console.admin.domain.BaseEntityInterceptor"/>
  </property>
+
+Session scoped or SessionFactory scoped ???
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+A Session-scoped interceptor is linked to a specific session.
+A SessionFactory-scoped interceptor is registered before building a SessionFactory
+It’s important to note that a SessionFactory-scoped interceptor will be applied to all sessions. Hence, we need to be careful not to store session specific state – as this interceptor will be used by different sessions concurrently.For SessionFactory-scoped interceptors, we naturally need to ensure that it’s thread-safe.
