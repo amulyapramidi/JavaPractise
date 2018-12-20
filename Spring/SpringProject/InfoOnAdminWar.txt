@@ -12,7 +12,11 @@ BaseEntityInterceptor
 ->Found reference to this under AnnotationSessionFactoryBean bean mentioned in applicationContext.xml
 ->It is an implementation of a 'HibernateInterceptor' - had logic to update created_timestamp, lastUpdateTimestamp - logic common to 
 all entities.
-
-
-
-
+~~~~~~~~~~~~~~~~~~~~~~
+Hibernate Interceptor
+~~~~~~~~~~~~~~~~~~~~~~~
+The Hibernate Interceptor is an interface that allows us to react to certain events within Hibernate.
+There are two ways of defining interceptors:
+  ->implementing the org.hibernate.Interceptor interface
+  ->extending the org.hibernate.EmptyInterceptor class (Recommended)
+How to write Hibernate Interceptor :
