@@ -20,3 +20,24 @@ There are two ways of defining interceptors:
   ->implementing the org.hibernate.Interceptor interface
   ->extending the org.hibernate.EmptyInterceptor class (Recommended)
 How to write Hibernate Interceptor :
+1. Create a class extending 'EmptyInterceptor'. 
+2. Override required method say 'onsave()'.
+
+
+  public boolean onSave(Object entity, Serializable id, Object[] state, String[] propertyNames, Type[] types)
+  {
+    Date date = new Date();
+    if (((entity instanceof ServerJob)) || ((entity instanceof ServerJobHistory)) || ((entity instanceof ServerJobStatistics))) {
+      date = DateUtils.getUTCTimeStamp();
+    }
+    setValue(state, propertyNames, this.createdUserID, AdminUtil.getLoggedInUserName());
+    setValue(state, propertyNames, this.createdTimestamp, date);
+    setValue(state, propertyNames, this.lastUpdatedUserID, AdminUtil.getLoggedInUserName());
+    setValue(state, propertyNames, this.lastUpdatedTimestamp, date);
+    return true;
+  }
+  
+ 3. In applicationContext.xml mention it as below under bean 'AnnotationSessionFactoryBean' :
+ <property name="entityInterceptor">
+    		<bean class="com.kony.console.admin.domain.BaseEntityInterceptor"/>
+ </property>
