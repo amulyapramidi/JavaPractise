@@ -850,4 +850,31 @@ There are variants of @Component in Spring Core.
 │ @Controller│ stereotype for presentation layer (spring-mvc)      │
 └────────────┴─────────────────────────────────────────────────────┘
 
+##############################
+Content Negotiation in Spring
+##############################
+Generaly Spring MVC can return 2 types of data, XML/JSON or View.
+There might be situations where we want both. This is called Content Negotiation.
+Eg. http://localhost:1234/SpringMVC/student.xml , http://localhost:1234/SpringMVC/student.xls both should be resolved based on extension.
+This kind of behaviour we have achieved previously using jackson jars, produces and 'Accept' header. This is not suggested appraoch as 'Accept' header
+is not reliable. 
+This can be achieved using ContentNegotiationViewResolver.
+<bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+      <property name="order" value="1" />
+      <property name="mediaTypes">
+        <map>
+        <entry key="xml" value="application/xml" />
+        <entry key="json" value="application/json" />
+        </map>
+      </property> 
+      <property name="defaultViews">
+        <list>
+          <!-- JSON View -->
+          <bean class="org.springframework.web.servlet.view.json.MappingJacksonJsonView">
+          </bean>
+         </list>
+      </property>
+      <property name="ignoreAcceptHeader" value="true" />
+</bean>
+
 
