@@ -68,6 +68,21 @@ Security has 2 aspects
 -> Authorization - Check if valid user has permission access - Based on user roles
 
 To Watch : https://bit.ly/2BsfSUK
+
+
+Spring security build on chain of filters, which will intercept the request, detect (absence of) authentication, redirect to authentication entry point or pass the request to authorization service, and eventually let the request either hit the servlet or throw security exception (unauthenticated or unauthorized). 
+DelegatingFitlerProxy glues these filters together. To perform their tasks, these filter access services such as UserDetailsService and AuthenticationManager. These filter can be extended by developer for custom behaviour.
+
+Key filters in the chain are (in the order)
+
+->SecurityContextPersistenceFilter (restores Authentication from JSESSIONID)
+->UsernamePasswordAuthenticationFilter (performs authentication)
+->ExceptionTranslationFilter (catch security exceptions from FilterSecurityInterceptor)
+->FilterSecurityInterceptor (may throw authentication and authorization exceptions)
+
+#####################################
+Sample Spring boot app with security:
+#####################################
 -> If we create a sample SpringBoot project and don't include 'Spring Boot Security Starter' package in pom.xml, All the URLS will have no authentication.
 -> If we just include that package and redeploy then to all the webpages, default authentication will be applied. Spring creates a dummy user 'user' and login page will be prompted becausing accessing any page.
 -> To create our own user base, create a class extending 'WebSecurityConfigurerAdapter' - This will have 2 methods- for authentication, for authorization. This needs to have annotations '@Configuration', '@EnableWebSecurity'
@@ -95,3 +110,4 @@ Set desired URLS to specific roles
   }
 In the springBoot main class add @Import({<CustomAuthClass>.class})
 Have to find out why '/admin/**' is the URL. Can it not be done with '/admin/*' ??
+
