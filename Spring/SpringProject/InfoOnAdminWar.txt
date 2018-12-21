@@ -94,4 +94,4 @@ Set desired URLS to specific roles
         .httpBasic();         //formLogin().loginUrl("/login").permitAll();  
   }
 In the springBoot main class add @Import({<CustomAuthClass>.class})
-
+Have to find out why '/admin/**' is the URL. Can it not be done with '/admin/*' ??
