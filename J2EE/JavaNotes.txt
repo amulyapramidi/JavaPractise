@@ -1,0 +1,24 @@
+Final : 
+~~~~~~~
+
+Use when you don't want someone to override your functionality.
+-> Prevent the class to be subclassed by any other class:
+
+public final class ParentClass {
+} 
+
+-> Prevent child class to override a method in parent class :
+
+public class ParentClass {
+    public final void performAction() {
+    }
+} 
+Whent to use :
+
+Use when you want to restrict overriding functionality -  want to give limited access to children class. 
+This is particularly important to library developers as the design decisions like that could significantly limit the applicability of the library.
+
+Java standard library has some examples of final classes, with most known being String class.
+On an early stage, the decision has been taken to proactively prevent any developer’s attempts to come up with own, 
+“better” string implementations.
+
