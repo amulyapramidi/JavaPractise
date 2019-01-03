@@ -50,5 +50,16 @@ Ways to solve a problem amulya :
 4. Algorithm
 5. Experiment/Analyse
 
+##############
+MessageQueues
+###############
+
+These are used for request management on server side for asynchronous behaviour. The goal of this is to not keep the client waiting on
+the response and relieve him for other tasks.
+
+ Message processing in an asynchronous fashion allows the client to relieve itself from waiting for a task to complete and, hence, can do other jobs during that time. 
+
+They provide features like persistence, routing and task management.
+
 
 
