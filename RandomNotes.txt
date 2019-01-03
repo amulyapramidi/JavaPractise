@@ -50,6 +50,14 @@ Ways to solve a problem amulya :
 4. Algorithm
 5. Experiment/Analyse
 
+Synchronous: 
+~~~~~~~~~~~~~
+A synchronous request blocks the client until operation completes. In such case, javascript engine of the browser is blocked.
+
+Asynchronous:
+~~~~~~~~~~~~~~~~
+An asynchronous request doesn’t block the client i.e. browser is responsive. At that time, user can perform another operations also. In such case, javascript engine of the browser is not blocked.
+
 ##############
 MessageQueues
 ###############
