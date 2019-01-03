@@ -11,3 +11,8 @@ on distance from source (via possible roads) , the request is sent about coming 
 
 While going through this found frequent reference to a concept called "Consistent Hashing".
 
+Consistent Hashing is a method adopted to optimise Load Balancing. Load Balancing referes to distributing Load (requests) b/w different servers. Generally this distributed is done this way - hash(requestID) % No.of servers. This would randomly distribute requests and a good
+hash function is the one that gives evenly distributed numbers -  so that load is 'almost' equally distributed.
+
+Now the challenge to this is - load gets increase and we have to add one server. Assume we have 4 servers, now we want to introduce another server. Remember this would disturb any local hash of requests that user has as 'hash(requestID) % No.of servers' this value changes now.  Consistent Hashing is a way that would reduce the amount of effect on other servers due to this change.
+
