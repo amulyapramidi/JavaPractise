@@ -1,0 +1,13 @@
+#############
+UBER Design
+#############
+
+Goal : To design a system that includes client-app, services & database which come together for a user experience where client can book cabs.
+
+Brief : 
+The geopgrahical area of a city is broken down into boxes of 1Km X 1Km each having unique ID.
+Whenever a client requests for cab, a radius(Say 2kms) is decided and all the cabs inside that radius are found out. Based on ETA, calculated based
+on distance from source (via possible roads) , the request is sent about coming request to the selected cab driver.
+
+While going through this found frequent reference to a concept called "Consistent Hashing".
+
