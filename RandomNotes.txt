@@ -17,5 +17,29 @@ hash function is the one that gives evenly distributed numbers -  so that load i
 Now the challenge to this is - load gets increase and we have to add one server. Assume we have 4 servers, 
 now we want to introduce another server. 
 Remember this would disturb any local hash of requests that user has as 'hash(requestID) % No.of servers' this value changes now. 
+
 Consistent Hashing is a way that would reduce the amount of effect on other servers due to this change.
+
+This is better explained via a circular array [0,m-1]
+____________________________ 
+|   ________r1__________   |                   
+|   |                  |   |                           
+|   |                  | S1|
+|   |                  | r2|
+|   |                  |   |
+|S4 |                  |r3 |
+|   |__________________|   |
+|_____S3_______________S2__|
+
+Servers based on their IDs are hashed and placed at random places in the array, now the requests are also hashed and placed at random places in array. The order of serving would be :  Request will be server by the first server they encounter in clockwise direction.
+From the diagram the requests are addressed as below:
+-> r1 by S1
+-> r2 and r3 by S2
+
+S4 and S1 have huge range in b/w which means a large part of the user payload will be taken up by S1 while other servers take only a 
+minute portion. This can be solved by using multiple hash functions say h1,h2,h3,h4 which would give multiple points to same server in
+hash.
+Server down due to hardware problem ? Say S1 got down unexpectedly then r1,r2,r3 would go to S2 till a new server gets added or the old
+one is made up.
+
 
