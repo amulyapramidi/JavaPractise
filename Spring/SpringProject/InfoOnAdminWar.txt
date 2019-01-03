@@ -110,5 +110,19 @@ Set desired URLS to specific roles
   }
 In the springBoot main class add @Import({<CustomAuthClass>.class})
 Have to find out why '/admin/**' is the URL. Can it not be done with '/admin/*' ??
+~~~~~~~~~~~~
+Depends-on 
+~~~~~~~~~~~~
+In applicationContext.xml
+
+<bean id="mobileFabricDefaultJobScheduler" class="com.kony.console.job.ServerDefaultJobScheduler" init-method="startDefaultJobs" depends-on="mobileFabricJobScheduler"/>
+
+depends-on : 
+
+Beans on which the current bean depends. Any beans specified are guaranteed to be created by the container before this bean. Used infrequently in cases where a bean does not explicitly depend on another through properties or constructor arguments, but rather depends on the side effects of another bean's initialization.
+
+A depends-on declaration can specify both an initialization-time dependency and, in the case of singleton beans only, a corresponding destruction-time dependency. Dependent beans that define a depends-on relationship with a given bean are destroyed first, prior to the given bean itself being destroyed. Thus, a depends-on declaration can also control shutdown order.
+
+'mobileFabricDefaultJobScheduler' will be destroyed before 'mobileFabricJobScheduler'.
 
 
