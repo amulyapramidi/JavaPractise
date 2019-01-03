@@ -42,4 +42,13 @@ hash.
 Server down due to hardware problem ? Say S1 got down unexpectedly then r1,r2,r3 would go to S2 till a new server gets added or the old
 one is made up.
 
+Ways to solve a problem amulya :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+1. Define
+2. Represent
+3. Approach
+4. Algorithm
+5. Experiment/Analyse
+
+
 
