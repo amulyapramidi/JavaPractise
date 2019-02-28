@@ -1,0 +1,25 @@
+public class MyClass {
+    public static void printSubSets(int[] a,int level,int n,String substring,int k)
+    {
+        if(level==0)
+        {
+            System.out.println("result :"+substring);
+            return;    
+        }
+
+        else
+        {
+            for(int i=k;i<n;i++)
+            {
+                printSubSets(a,level-1,n,substring+a[i],i+1);
+            }
+        }
+        
+    }
+    public static void main(String args[]) {
+        int[] a = {1,2,3};
+        String result="";
+        for(int i=3;i>=0;i--)
+            printSubSets(a,i,3,result,0);
+    }
+}
