@@ -1,0 +1,19 @@
+public class MyClass {
+    public static void printSubSets(int[] a,int n,int i,String substring)
+    {
+        if(n==i)
+            System.out.println(substring);
+        else
+        {
+            
+                printSubSets(a,n,i+1,substring+a[i]);
+                printSubSets(a,n,i+1,substring);
+        }
+        
+    }
+    public static void main(String args[]) {
+        int[] a = {1,2,3};
+        String result="";
+        printSubSets(a,3,0,"");
+    }
+}
