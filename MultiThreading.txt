@@ -1,1 +1,11 @@
+History of multithreading :
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Old days :
+1 CPU :
+Stage 1:  Running single program : CPU was only capable of executing 1 task at a time in the begninning.
+Stage 2:  Running multiple programs : CPU is shared between the programs. OS switched between execution of multiple programs which looked           like they are getting executed paralelly to the users. This was beginning of Multi-tasking.
+          Multi-tasking CONS : resource must be released by program that is not being used by it. Program cannot assume it will have                 access to the resource all the time.
+Stage 3 : Running multiple threads : A single program can have multiple threads of execution inside it. It's similar to multiple CPU                 executing program. Since multiple threads are reading and writing from memory of a program it can result in data corruption.
+Multi core processor : A single chip having multiple CPU. 
 
