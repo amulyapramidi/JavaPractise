@@ -1,5 +1,3 @@
-import java.io.ObjectInputStream.GetField;
-
 public class CustomHashMap {
 
 	enum State 
@@ -44,7 +42,7 @@ public class CustomHashMap {
 	}
 	CustomHashMap()
 	{
-		this.vo = new ValueObject[MAX_CAPACITY];
+		this.vo = new ValueObject[2*MAX_CAPACITY];
 		for(int i=0;i<MAX_CAPACITY;i++)
 		{
 			this.vo[i] = new ValueObject();
@@ -100,7 +98,7 @@ public class CustomHashMap {
 		{
 			int index = calculateHash(key,MAX_CAPACITY);
 			int counter=1;
-			System.out.println(this.vo[index].state!=State.EMPTY || this.vo[index].state!=State.DELETED);
+			//System.out.println(this.vo[index].state!=State.EMPTY || this.vo[index].state!=State.DELETED);
 			while(this.vo[index].state==State.OCCUPIED && this.vo[index].data!=key)
 				index = calculateHash(key+counter++,MAX_CAPACITY);
 			// Existing increment counter
@@ -117,8 +115,9 @@ public class CustomHashMap {
 				this.vo[index].count = 1;
 				this.vo[index].state = State.OCCUPIED;
 				this.vo[index].data = key;
+				setOccupiedCount(getOccupiedCount()+1);
 			}
-			setOccupiedCount(getOccupiedCount()+1);
+			
 			return true;
 		}
 
@@ -189,6 +188,8 @@ public class CustomHashMap {
 		hm.search(103);
 		hm.delete(55);
 		hm.delete(55);
+		hm.delete(10);
+		hm.delete(45);
 		System.out.println("Occupied Count : "+hm.getOccupiedCount());	
 	}
 }
