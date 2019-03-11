@@ -1,3 +1,4 @@
+import java.io.ObjectInputStream.GetField;
 
 public class CustomHashMap {
 
@@ -99,7 +100,8 @@ public class CustomHashMap {
 		{
 			int index = calculateHash(key,MAX_CAPACITY);
 			int counter=1;
-			while(this.vo[index].state!=State.EMPTY && this.vo[index].data!=key)
+			System.out.println(this.vo[index].state!=State.EMPTY || this.vo[index].state!=State.DELETED);
+			while(this.vo[index].state==State.OCCUPIED && this.vo[index].data!=key)
 				index = calculateHash(key+counter++,MAX_CAPACITY);
 			// Existing increment counter
 			if(this.vo[index].data==key)
@@ -109,7 +111,7 @@ public class CustomHashMap {
 			}
 				
 			// New entry
-			if(this.vo[index].state==State.EMPTY)
+			if(this.vo[index].state!=State.OCCUPIED)
 			{
 				System.out.println("[Storing "+key+" at "+index+"]");
 				this.vo[index].count = 1;
@@ -128,9 +130,9 @@ public class CustomHashMap {
 		{
 			int index = calculateHash(key,MAX_CAPACITY);
 			int counter=1;
-			while(this.vo[index].state!=State.EMPTY && this.vo[index].data!=key)
+			while((this.vo[index].state==State.OCCUPIED) && this.vo[index].data!=key)
 				index = calculateHash(key+counter++,MAX_CAPACITY);
-			if(this.vo[index].state==State.EMPTY)
+			if(this.vo[index].state == State.EMPTY || this.vo[index].state == State.DELETED)
 				return false;
 			else
 			{
@@ -140,29 +142,53 @@ public class CustomHashMap {
 			
 		}
 	}
-
+	
+	boolean delete(int key){
+		if(getOccupiedCount()==0)
+			return false;
+		else
+		{
+			int index = calculateHash(key,MAX_CAPACITY);
+			int counter=1;
+			while((this.vo[index].state==State.OCCUPIED) && this.vo[index].data!=key)
+				index = calculateHash(key+counter++,MAX_CAPACITY);
+			if(this.vo[index].state==State.EMPTY || this.vo[index].state==State.DELETED)
+				return false;
+			else
+			{
+				if(this.vo[index].count>1)
+				{
+					this.vo[index].count--;
+					System.out.println("Decremented Count successfully");
+				}
+					
+				else
+				{
+					setOccupiedCount(getOccupiedCount()-1);
+					this.vo[index].state=State.DELETED;
+					System.out.println("Deleted successfully");
+				}
+				
+				return true;				
+			}
+			
+		}
+	}
 	public static void main(String[] args) {
 		CustomHashMap hm = new CustomHashMap();
 		hm.insert(10);
+		System.out.println("Occupied Count : "+hm.getOccupiedCount());
 		hm.insert(45);
+		System.out.println("Occupied Count : "+hm.getOccupiedCount());
 		hm.insert(55);
-		hm.insert(103);
-		hm.insert(32);
-		hm.insert(10);
-		hm.insert(45);
+		System.out.println("Occupied Count : "+hm.getOccupiedCount());	
 		hm.insert(55);
-		hm.insert(103);
-		hm.insert(10);
-		hm.insert(45);
-		hm.insert(55);
-		hm.insert(103);
-		hm.insert(32);
-		hm.insert(10);
-		hm.insert(45);
-		hm.insert(55);
-		hm.insert(103);
+		System.out.println("Occupied Count : "+hm.getOccupiedCount());	
 		hm.search(10);
 		hm.search(55);
 		hm.search(103);
+		hm.delete(55);
+		hm.delete(55);
+		System.out.println("Occupied Count : "+hm.getOccupiedCount());	
 	}
 }
