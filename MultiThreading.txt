@@ -100,5 +100,15 @@ HANDLE REQUEST TO WORKER THREAD
 The worker thread will respond to request when processing on the request is done. This will allow the main thread of execution to handle
 more requests.
 
+3. Multi-threading costs:
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-> More complex design :
+Code must be written in a thread-safe manner and the issues caused at run-time are hard to re-pro and analyse.
+-> Context switching :
+When a CPU switches between threads, it has to save the state, pointers of next thread to execute, local data etc. This is known as Context switching and operations involved to perform above things is costly.
+-> More resources consumption :
+Threads have local memory. A program that has multiple threads takes up a lot of memory even when the threads don't do much of a task. So threads creation,management consume a lot of CPU time and memory.
+
 
 
