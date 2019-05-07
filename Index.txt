@@ -83,7 +83,7 @@ Week-5[Robin karp, Prefix sum & product, Rolling hash implementation]
 11. Given A B i j k l, i-j substring in A match with k-l substring in B - RK
 12. Length of longest palindrome in a string - RK
 
-Week-6
+Week-6[Range problems, Extended sieve ,Game theory, Meet in the middle]
 ~~~~~~
 1. 2 type os queries , one to set -one to get closest set index
 2. Length of longest subarray having equal no. 0 & 1
@@ -94,4 +94,24 @@ Week-6
 7. Sum of OR of subarrays
 8. Volume of water accumulated on n buildings
 9. Random number array, find first missing +ve no.
-10. 
+10. Print frequency of natural numbers in array
+11. isPrimeNumber
+12. Count of primes in a given range - Extended Sieve
+13. Game theory - Greedy Vs Optimal, Optimal vs Optimal, Greedy vs Greedy
+14. A vs B game - N coins - can pick 1,2,3 or 1,2,4,8,16
+15. A vs B game - N piles - can pick any no. of coins from same pile
+16. Pair having sum K - Meet in the Middle
+
+Week-7
+~~~~~~
+1. Stacks,Queues intro
+2. Implement 2 stacks using single array- Implement M stacks using N arrays
+3. Stack that supports getMax
+4. Queue using stacks
+5. Implement arraylist
+6. Reverse words of a string
+7. Validate string of parenthesis
+8. For every a[i] find first less than a[i] on right and right
+9. Max rectangular area under histogram
+10. For every k window, find max
+11. Linkedlist intro
