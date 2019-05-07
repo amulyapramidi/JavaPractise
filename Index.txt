@@ -1,3 +1,17 @@
+###########################################
+Week-1 [BitWise manipulations, Complexity analysis]
+Week-2 [Advanced application BW, Recursion, Sorting Intro]
+Week-3 [Count Sort, Inversion Count,Two pointer technique, Merge sort, Binary Search]
+Week-4 [Placement problems, Hashing, Carry forward]
+Week-5 [Robin karp, Prefix sum & product, Rolling hash implementation]
+Week-6 [Range problems, Extended sieve ,Game theory, Meet in the middle]
+Week-7 [Stacks, Queues, LinkedList, Floyd Cycle detection, LRU cache]
+Week-8 [Trees intro]
+Week-9 [Advanced tree prob, Min Heap, Quick Select, Division method, Trie]
+Week-10 [Dynamic Programming]
+Week-11 [Knapsack, 2D kadane's algo, Matrix chain multiplication, Graph theory intro]
+Week-12 [Problems on graph theory, Shortest path, Topological sort, Kruskals algorithm, Graph colouring,Segent tree]
+###########################################
 Week-1 [BitWise manipulations, Complexity analysis]
 ~~~~~~
 1. OS concepts basics
@@ -102,7 +116,7 @@ Week-6[Range problems, Extended sieve ,Game theory, Meet in the middle]
 15. A vs B game - N piles - can pick any no. of coins from same pile
 16. Pair having sum K - Meet in the Middle
 
-Week-7
+Week-7[Stacks, Queues, LinkedList, Floyd Cycle detection, LRU cache]
 ~~~~~~
 1. Stacks,Queues intro
 2. Implement 2 stacks using single array- Implement M stacks using N arrays
@@ -115,3 +129,86 @@ Week-7
 9. Max rectangular area under histogram
 10. For every k window, find max
 11. Linkedlist intro
+12. Basic - print list, size, print in reverse, insertAtPosition, insert in sorted list, 
+13. Variations of delete - delete at position, delete all occurences of x, modify list as distinct, modify list as unique
+14. Reverse linked list
+15. Random ll problems : Merge sorted ll, mid of ll, sort singly ll, arrange linked list as l1->ln->l2->ln-1, Reverse every k nodes, Reverse alternative K nodes, check if ll is palindrome, add numbers expressed in ll.
+16. Check if 2 ll intersect - slow, fast pointer
+17. Detect if ll has a cycle - Floyd's cycle detection algorithm
+18. Implement LRU cache - 3 approaches
+19. Clone sll - with only next, with next and random pointers
+
+Week-8[Trees intro]
+~~~~~~
+1. Intro to Trees
+2. Height and Depth of nodes
+3. Complete vs Full binary trees
+4. Min and Max nodes for CBT and FBT
+5. Tree traversals
+6. Basic operations : size,sum,max,height,depth, level order traversal
+7. 3 Ways to print level wise : Marker, Queue size, level wise
+8. Level order with row level reverse
+9. Mirror reflection of tree
+10. Sum of numbers formed from head to leaf nodes
+11. Postorder using PreOrder and Inorder
+12. isBST
+13. Deleting node in BST - leaft,single child, both children
+
+Week-9[Advanced tree prob, Min Heap, Quick Select, Division method, Trie]
+~~~~~~~
+1. Trim BST to be within a given range
+2. Length of path b/w 2 edges
+3. Max sum formed by any path
+4. Nodes at K distance
+5. Print tree in vertical order,diagonal order, right view, left view, top view.
+6. Preorder using iterative code
+7. sorted DLL into balanced BST and vice versa
+8. Floor and Ceil in a tree
+9. Comparision of insert,getMin,deleteMin on various DS
+10. Min Heap
+11. K smallest elements in array - Quick select
+12. Every element is within K distance from its original position - Sort array
+13. row wise sorted matrix, print sorted array - Merging logic
+14. Sort 100 GB size file, RAM is only 4GB
+15. Median of a random array - Division method
+16. Given string and list of words, count of words that starts with string
+17. Trie
+
+Week-10[Dynamic Programming]
+~~~~~~~
+1. Given list of words and string, check if string is formed by words
+2. Given an array choose 2 elements that form max XOR - Trie
+3. Given an array choose subarry that form max XOR
+4. Dynamic programming steps
+5. Tabulation vs Memoisation
+6. Problems : Reaching nth floor taking -1,2 steps, Ways of placing tile on floor (front/back-same & diff colours), given n find count of binary strings without adjacent 1, Given dice- #ways of reaching sum k (with and without cost of rolling dice), Given cost of painting each house R,G,B - min cost such that no 1 adj, houses have same colour, Given time taken by A & B to perform n tasks - A to B switching takes cost - find Min cost to complete job, Max sub array sum,max subsequence sum, max non adjacent subsequence sum, Lenth of longest increasing subsequence, N X M matrix reach destination given some blocked cells.
+
+Week-11 [Knapsack, 2D kadane's algo, Matrix chain multiplication, Graph theory intro]
+~~~~~~~
+1. Knapsack - Fractional, Integer (0/1, Infinite)
+2. Split array in 2 parts - sum of each part is same, Given N X M matrix and corners of a rectangle - sub of elements of sub matrix ( & max sub array sum) - 2D Kadane's algorithm
+3. n X M binary matrix, find largest square, rectangle submatrix
+4. Matrix chain multiplication
+5. Graph theory terms, Adjacency list - adjacency matrix
+6. Graph traversals
+7. Count of connceted components
+8. Graph is tree or not-acyclic or cyclic
+9. Given binary matrix, #islands (n-4 n-8 connectivity)
+
+Week-12[Problems on graph theory, Shortest path, Topological sort, Kruskals algorithm, Graph colouring,Segent tree]
+~~~~~~~
+1. Given binary matrix and source cell, check if knight can cover all the cells without touching blocked cells.
+2. Shortest path between Src and dest in unweighted, undirected graph - BFS
+3. Length of longest path in acyclic graph
+4. Shortest path between Src and dest in unweighted, undirected graph - Dijkstra's algorithm
+5. All pair shortest path - Read about Floyd Warshall
+6. Cycle detection - Undirected(|V|=|E|-1) , directed (Topological sort using Khan's algo)
+7. Given n files to compile with dependencies, determine order of compilation - Topoligical sort using kadane's algo
+8. Given binary matrix - find path from R to C in lexicographical order
+9. Minimal spanning tree- Kruskals algorithm (Union Find data structure, Path optimisation)
+10. Given snakes and ladders postisions, min no of dice rolls to reach 100
+11. Graph colouring - bipartite graph, divide graph into 2 groups such that there is no intra communication only inter
+12. Relation b/w odd length-even length cyclic graph and colouring
+13. Max-flow
+14. Hamiltonion path
+15. Given array and range-find max in the range for Q queries : Binary IT, Square root decomposition, Segment tree
