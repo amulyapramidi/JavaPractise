@@ -30,9 +30,68 @@ Week-2 [Advanced application BW, Recursion, Sorting Intro]
 15. BlockLengths given, place them at min K distance - count combinations
 16. Bubble,Selection,Insertion sorting
 
-Week-3
+Week-3 [Count Sort, Inversion Count,Two pointer technique, Merge sort, Binary Search]
 ~~~~~~
 1. Count Sort - Not just for counting, but sorting original array 
-2. Adjustng count sort based on range on input 
+2. Adjustng count sort based on range of input 
 3. Subset whose sum of any 2 elements is not divisible by K
-4. 
+4. Merging of 2 sorted arrays[MergeSort,Insertion Sort]
+5. In-place Merging
+6. Count of pairs in array that satisfy i<j && a[i] > a[j]
+7. Merge sort
+8. Inversion count
+9. Two pointer technique
+10. Pair sum K - TPT
+11. Binary array sort 0 & 1 - TPT
+13. Binary search - Search for a no. in array
+14. Comparision of BinarySearch & Linear search for various inputs
+15. Pair sum K -BS
+16. In sorted array, every element repeated twice except K - find K
+17. Floor,Ceil of K in array
+18. Handling multiple queries on input
+19. Array of repeated elements, find count of K
+
+Week-4[Placement problems, Hashing, Carry forward]
+~~~~~~
+1. Given 3 arrays, find triplet where diff b/w max and min is min - closest triplet
+2. Sorted array of natural numbers, find missing element. Same for -ve & +ve
+3. Square root
+4. Given time taken for n tasks, divide among k workers - total time must be min.
+5. Given coordinates of n houses place k friends such that max. distance b/w 2 houses is min.
+6. Given coordinates of n houses place k friends such that min. distance b/w 2 houses is max.
+7. Find median of 2 sorted arrays when merged.
+8. Comparision of CRUD on different DS
+9. Hashing, collision resolution, implementation
+10. Pair sum K - Hashing
+11. Max sub array sum
+12. Carry forward
+13. Subarray, Subset, Subsequence
+14. Count of non-decreasing subsequence
+
+Week-5[Robin karp, Prefix sum & product, Rolling hash implementation]
+~~~~~~~
+1. Intersection and Union using hashmap
+2. Length of longest subarray that can be re-arranged in contiguous order-with & without duplicate
+3. Count distinct elements in a given window
+4. Count of freq. of alphabets in given string
+5. First repeating character
+6. Length of longest palindrome in a string
+7. Robin Karp algorithm- Rolling hash
+8. For n queries, given i j sum of subarray from i to j - Prefix sum
+9. create array where every ith element is product of remaining of original array - Prefix product
+10. Given A and B, find length of smallest substring of A which has all characters of B
+11. Given A B i j k l, i-j substring in A match with k-l substring in B - RK
+12. Length of longest palindrome in a string - RK
+
+Week-6
+~~~~~~
+1. 2 type os queries , one to set -one to get closest set index
+2. Length of longest subarray having equal no. 0 & 1
+3. Find K in a rotated sorted array
+4. Row & column wise sorted array - find K
+5. Sorting string arranged in rows - find k
+6. 0 1 sorted rows in matrix, find max count of 1 in a row
+7. Sum of OR of subarrays
+8. Volume of water accumulated on n buildings
+9. Random number array, find first missing +ve no.
+10. 
