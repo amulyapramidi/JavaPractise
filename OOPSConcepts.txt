@@ -1,0 +1,35 @@
+Dynamic overloading :
+1. Empty constructor of parent gets called everytime a child instance is created.
+
+public class Parent {
+	Parent()
+	{
+		System.out.println("Creating parent object");
+	}
+	Parent(int i)
+	{
+		System.out.println("Creating parent object : "+i);
+	} }
+ public class Child extends Parent{
+	Child(){
+		System.out.println("Creating child object");
+	}
+	Child(int i){
+		System.out.println("Creating child object "+i);
+	}}
+  
+  public class tEST {
+public static void main(String[] args) {
+	Child ch = new Child(1);
+	System.out.println("#############");
+	Parent pr = new Parent(1);
+	System.out.println("#############");
+	Parent obj = new Child(1); }
+  Output : 
+Creating parent object
+Creating child object 1
+#############
+Creating parent object : 1
+#############
+Creating parent object
+Creating child object 1
