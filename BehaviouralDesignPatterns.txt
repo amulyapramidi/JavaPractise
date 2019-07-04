@@ -1,0 +1,5 @@
+1. Chain of Responsiblity :
+  Issue : Multiple if else checks to decide flow of something.Can cause readability issues.
+  Solution : Create a chain of handlers-> similar to linked list-> a handler can either handler the request or pass it to next handler.
+  Formal Def : In this, a chain of request handlers is created and the request is passed along this chain until a request handler handles it. This avoids coupling of request to receiver by giving opportunity to more than one object to handle the request.
+  Example : Handler - interface having setNextHandler and handle. AbstractHandler - Abstract class implementing Handler and defines setNextHandler. Concreate classes - extends AbstractHandler-> define handle-> based on somecondition check if can handle or call nexthandler
