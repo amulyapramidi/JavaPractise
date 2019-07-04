@@ -1,0 +1,48 @@
+=>API injection :
+issue with ../  when user provides input : block by creating file object and file.getName0
+Data and instruction need to be separate
+=>Insecure SQL :
+'select * from Temp where Id='+id : id provided by user
+id : 123' union select * from.... : Data behaving as instruction
+Use PreparedStatement to avoid treating data as instruction -> Parameterised query : Make sure all parameters are set using ps object and not using string concat 
+PS : takes care of quotes
+=>Fixing insecure SQL with filter : pname = pname.replaceAll("'","\"); -> this prevents data from becoming instruction
+What if attacker gives pname with \ => this nullifies the backslash that gets added in code. -> Still an issue
+-> pname=pname.replaceAll("\\","\\\\"); -> Many ways to check SQL injection like this
+=>SQL smuggling :
+Unicode characters get converted to possible characters
+02BC-> gets converted as ' -> this doesnt come under normal backlisting we saw till now
+=>Instead of backlisting-> Go for whitelisting !!
+Make sure data gets evaluation as data not instruction :
+=?Issues while executing js in java
+String inst = "print("+uname+")";
+engine.execute(inst)-> uname can be tampered => bind the functionality inside a function instead.
+=>XSS attack ? cross scripting attack : use encoded data to avoid attack
+
+Processing bad input :
+1. XML External Entity recusion : Block access to XEE using code
+2. Mass assignment : Using modalbinding to set properties on modal object-> adding modal attribute in form uses that during modal object creation. To avoid this use binder.setAllowedFields in @initbinder under controller. Can also avoid it by restricting sensitive fields from objects that will be modal objects.
+
+
+resticting user :
+
+While designing API
+1. Is this resource accessible only to authenticated users?
+2. Is this resource accessible only to admin users-authorisation?
+
+Types of access control issues :
+1. Horizontal privilege escalation : Viewing data of pivilege at my level-> instead of showing userID in url-> create a mapping b/e employeeid and a random number and use random number in url, Or can bind empoyee id-> create session attribute-> use sessionId in URl isntead
+2. Vertical privilege escalation : Accessing functionality that is above my privilege level
+3. Forced browsing : No authentication need to adccess a URL
+4.  Insecure ?
+
+
+Crypto types :
+~~~~~~~~~~~~
+1. Hashing : one way-> cannot decrypt, irrespective of input size output will be of same size.MD5,SHA1,SHA2.
+Used to integrity checking & password storage. Use salted hashes for password storage(add additional input to hashed result). Use strong hash algo-avoid collisions , cracking ? Use PBKDF2 or Bcrypt for password hashing.
+
+2. Symmetric encryption : one key for encryption and decrypt. This is a faster encryption process. Disad : key sharing is needed as sender and receiver needs to use same key. AES
+
+3. Assymetric encryption : every user has private + public . I broadcast my public key. I encrypt with my public key, can only be decrypt with my private key. Slower process. RSA
+4. Mix of 2 & 3 is used
