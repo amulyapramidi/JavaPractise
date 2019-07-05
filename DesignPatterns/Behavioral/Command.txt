@@ -1,0 +1,1 @@
+Issue : In scenarios where you want to execute commands, instead of directly using the receiver object, creating different commandor and receiver objects.
