@@ -1,1 +1,3 @@
 Issue : In scenarios where you want to execute commands, instead of directly using the receiver object, creating different commandor and receiver objects.
+A request is wrapped as an object as command and passed to invoker.
+Command interface, CommandClass created implementing Command-> provides setter and getter on Receiver. Invoker -> can set Command and execute CommandClass.
