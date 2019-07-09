@@ -45,4 +45,5 @@ Used to integrity checking & password storage. Use salted hashes for password st
 2. Symmetric encryption : one key for encryption and decrypt. This is a faster encryption process. Disad : key sharing is needed as sender and receiver needs to use same key. AES
 
 3. Assymetric encryption : every user has private + public . I broadcast my public key. I encrypt with my public key, can only be decrypt with my private key. Slower process. RSA
+Server has private key to decrpyt data. Clients use public key shared by server to encrypt and send data to server.
 4. Mix of 2 & 3 is used
