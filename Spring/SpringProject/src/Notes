@@ -23,8 +23,8 @@ Spring Core
 a) ApplicationContext 
 ->This is used in latest spring apps.
 ->Functionality is similar to BeanFactory and some additional features. 
-->This has pre-loading enabled by default means that beans get created in spring container(pre-loaded) even though they are not requested in program. This can be changed by adding the value in
-'default-lazy-init=false' in beans.xml.
+->This has pre-loading enabled by default means that beans get created in spring container(pre-loaded) even though they are not 
+requested in program. This can be changed by adding the value in 'default-lazy-init=true'(false by default) in beans.xml.
 b) BeanFactory
 ->Used in beginning versions on spring. 
 ->Now exists only for backward compatability
