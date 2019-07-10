@@ -1,3 +1,21 @@
+Intro
+~~~~~~
+Spring is an open source framework.
+*Used as an alernative to heavier java enterprise technologies. Eg. Spring is alternative to EJB.
+*Addresses complexity of enterprise application development - simplifies java development.
+*Allows lightweight and minimally invasive development with POJOs. POJO - Plain Old Java Object is a simple java class that is not bound by
+any framework specific restrictions. 
+Eg. EJB requires developer to implement EJB interface and extend certain classes unlike spring.Due to usage of POJO the app 
+can be deployed even in lightweight servlet containers (i.e web container) like tomcat. 
+*Spring apps can be run on low configuration machines.
+*Spring allows Aspect Oriented Programming(Key unit of modularity - Aspect) which complements OOP(Key unit of modularity - Class).
+*Spring has loose coupling through dependency injection and interface orientation.
+===
+Difference between framework and libraries : 
+===
+Libraries are used as plugin into my code to perform a specific operation.
+Frameworks takeup major chunk of app management and calls user code only when user configures.
+
 ##################################################
 Spring Core 
 ##################################################
