@@ -119,6 +119,24 @@ BeanPostProcessor VS BeanFactoryPostProcessor
 BeanPostProcessor [Bean Level] - Called when container initialises 'every bean'
 BeanFactoryPostProcessor [Application Level] - Called during startup of the Spring context after all bean definitions will have been loaded but beans are yet to be 'initialised'.This allows for overriding or adding properties even to eager-initializing beans
 -> When a bean is modified in both BPP and BFPP -> BFPP is the one that is given priorit, infact BPP is not called for that bean.
+
+use of @Qualifier : When u are autowiring a interface->to find exact implementation this must be used along with auto wired.
+Eg : When Person is an interface and employee is an implemenation 
+@Component
+@Qualifier("employee") 
+public Manager implements Person {}
+
+@Component
+public Payroll {
+
+    private Person person;
+
+    @Autowired
+    public Payroll(@Qualifier("employee") Person person){
+          this.person = person;
+    }
+
+}
 #########################################################################################
 Spring MVC:
 ##########################################################################################
