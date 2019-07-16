@@ -90,6 +90,11 @@ There are 3 ways of writing init and destroy for beans
 2. Annotate the methods with @PostConstruct, @PreDestroy and mention an annotation scnanner(CommonAnnotationBeanPostProcessor) bean in bean.xml
 3. Implement 2 spring interfaces IntializingBean,DisposableBean
 ## When scope of bean is Prototype - Destroy method is not called on bean - User needs to manage destroy of bean.
+bean lifecycle methods :
+~~~~~~~~~~~~~~~~~~~~~~~
+before-init (controlled using BeanPostProcessor)======create bean (by container)====init(controlled using IntializingBean )====
+=======after-int(controlled using BeanPostProcessor)============destroy(controlled using DisposableBean )====== bean destroyed (by container) 
+
 Writing pre-init and post-init methods for bean [Common to all beans]:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 1. pre-init and post-init functionality using BeanPostProcessor-> implement this and mention beanPostprocessor name in beans.xml
