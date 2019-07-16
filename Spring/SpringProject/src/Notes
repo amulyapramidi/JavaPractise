@@ -181,7 +181,7 @@ WITH ANNOTATIONS
 	-> Mention ViewResolver bean (InternalViewResolver)- This contains prefix(/Web-INF/jsp),suffix(.jsp) for view 
 	-> Mention component-scan node for Scanning of annotations
 	<context:component-scan base-package="com.amulya.spring" />
-	
+=> Form action if has / in url then the redirected url will be localhost:8080/new else localhost:8080/<appName>/new. / is resetting the context name.	
 MultiActionControllerClass: 
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 If a controller has more than 1 requestmapping
