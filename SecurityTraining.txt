@@ -1,4 +1,4 @@
-=>API injection :
+=>API injection : 
 issue with ../  when user provides input : block by creating file object and file.getName0
 Data and instruction need to be separate
 =>Insecure SQL :
