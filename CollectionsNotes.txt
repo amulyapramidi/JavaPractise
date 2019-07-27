@@ -1,0 +1,38 @@
+Collections
+##############
+Array : Since array cannot be grown dynamically.Also it doesnt have any search or other methods.
+Collections : Set of classes & interfaces (thats why called as collections framework) which provides with a resizable DS and methods.
+
+Story starts with Iterable interface.
+Collection - extends iterable.
+Set, List,Queue  interfaces - extends Collection
+Map - Doesnt extend Collection but part of java.util package.
+
+##############
+Set vs List : 
+##############
+Set - Doesnt store duplicates. Internally uses hashing so same keys will have same position right.
+List - index based storing. Can have duplicates. preserves order
+Queue - preserve order.
+
+#################################
+Common methods in a collection :
+#################################
+add,remove,contains,addAll,size,isEmpty,clear,Iterator*
+Set,List,Queue implement above methods and have some additional methods too.
+Eg. List also supports- get,put based on index, lastIndex,ListIterator,sublist etc,indexOf
+
+###################################
+Classes under collection framework:
+###################################
+
+ArrayList : 
+implements List. 
+Adv : access is very fast as arrays is the underlying datastructure.
+Disadv : Deletion, insertion very slow compared to list. Not thread safe.
+
+Vector : similar to above but has synchronized blocks. So it is thread safe.
+
+LinkedList : Doubly linked list.Implements both list and Dequeue.  Peek and poll methods of queue are implemented to findout next elements.
+Adv : insertion is quick
+Disadv : search and deletion take time.
